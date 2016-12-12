@@ -23,7 +23,7 @@ var oneDay = 86400000;
 
 app.use(compression());
 
-app.use('/', express.static(__dirname + '/public', {maxAge: oneDay}));
+app.use('/', express.static(__dirname + '/front/public', {maxAge: oneDay}));
 
 var port = 8108;
 
