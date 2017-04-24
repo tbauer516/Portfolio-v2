@@ -1,22 +1,22 @@
 {
-  "name": "test-environment",
-  "version": "0.0.1",
-  "description": "Test environment for my practicing publishing a node server",
-  "private": true,
-  "engines": {
-    "node": "6.x",
-    "npm": "3.x"
-  },
-  "dependencies": {
-    "express": "latest",
-    "http-master": "latest",
-    "compression": "latest",
-    "mongodb": "latest"
-  },
-  "main": "start.js",
-  "scripts": {
-    "start": "node start.js"
-  },
-  "author": "Tyler Bauer",
-  "license": "ISC"
+	"name": "test-environment",
+	"version": "0.0.1",
+	"description": "Test environment for my practice publishing a node server",
+	"private": true,
+	"dependencies": {
+		"express": "^4.15.2",
+		"http-master": "^1.2.6",
+		"compression": "^1.6.2",
+		"nunjucks": "^3.0.0"
+	},
+	"devDependencies": {
+		"nodemon": "^1.11.0"
+	},
+	"main": "server.js",
+	"scripts": {
+		"start": "node start.js",
+		"dev": "nodemon --watch ./app/ --watch ."
+	},
+	"author": "Tyler Bauer",
+	"license": "ISC"
 }

@@ -1,32 +1,28 @@
-var express = require('express');
-var compression = require('compression');
-var app = express();
-
-// var MongoClient = require('mongodb').MongoClient
-// var assert = require('assert');
-
-// // Connection URL
-// var url = 'mongodb://localhost:27017/portfolio';
-
-// // Use connect method to connect to the server
-// MongoClient.connect(url, function(err, db) {
-//   assert.equal(null, err);
-//   console.log("Connected successfully to server");
-
-//   db.close();
-// });
-
+const express = require('express');
+const fs = require('fs');
+const compression = require('compression');
+const nunjucks = require('nunjucks');
+const app = express();
 
 // Server Hosting Code Below
 
-var oneDay = 86400000;
+const oneDay = 0; //86400000;
+const port = 8108;
+
+app.set('view engine', 'html');
 
 app.use(compression());
 
-app.use('/', express.static(__dirname + '/front/public', {maxAge: oneDay}));
+nunjucks.configure(['app/partials', 'app/views'], {
+	autoescape: true,
+	express: app
+});
 
-var port = 8108;
+// app.use('/', express.static(__dirname + '/public', { maxAge: oneDay }));
+app.use('/static', express.static(__dirname + '/app/public', { maxAge: oneDay }));
 
-app.listen(port, function() {
-  console.log(`Application worker ${process.pid} started...`);
+require('./app/routes.js')(app);
+
+app.listen(port, function () {
+	console.log(`Application worker ${process.pid} started...`);
 });
