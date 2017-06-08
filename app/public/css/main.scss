@@ -1,0 +1,189 @@
+$sm: 544px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$base: #22531F;
+$dark: #252525;
+$gray: #454545;
+$lighter: #0B6C06;
+$bright: #08A700;
+$text-color: white;
+
+$top-height: 50px;
+$border-width: 4px;
+
+$sidebar-width: 10%;
+
+body {
+	background-color: $dark;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 16pt;
+	margin: 0;
+	display: flex;
+}
+
+#top {
+	background-color: $dark;
+	border-bottom: $border-width solid $lighter;
+	display: flex;
+	font-size: 28pt;
+	height: $top-height;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+
+	a {
+		align-self: center;
+		padding-left: 10px;
+	}
+}
+
+#sidebar {
+	background-color: $gray;
+	border-right: $border-width solid $lighter;
+	flex: 0 0 $sidebar-width;
+	padding-top: $top-height + $border-width;
+	z-index: 9;
+
+	a {
+		display: block;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+	}
+
+	a:hover {
+		background-color: white;
+		color: $dark;
+	}
+
+	nav {
+		position: fixed;
+		width: $sidebar-width;
+	}
+}
+
+#main {
+	flex: 1;
+	padding-top: $top-height;
+}
+
+.section {
+	min-height: calc(100vh - 100px);
+	padding: 25px;
+
+	h1 {
+		text-align: center;
+		margin-bottom: 30px;
+	}
+}
+
+#body-title {
+	background-color: $base;
+	padding: 0;
+	position: relative;
+
+	#bg-img {
+		background-image: url('../img/dunes-lg.jpg');
+		background-position: center;
+		background-size: cover;
+		height: calc(100vh - 50px);
+		opacity: 0.5;
+		width: 100%;
+	}
+
+	h1 {
+		bottom: 50vh;
+		font-size: 50pt;
+		left: 60px;
+		position: absolute;
+	}
+}
+
+#body-about-site {
+	background-color: $dark;
+
+	p {
+		margin-bottom: 20px;
+	}
+}
+
+#body-about-me {
+	background-color: $gray;
+	
+	.flex-container {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+
+		& > div {
+			align-items: flex-start;
+			display: flex;
+			flex: 0 1 50%;
+		}
+
+		& > div:nth-of-type(1) {
+			align-content: center;
+		}
+
+		& > div:nth-of-type(2) {
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+			div {
+				flex: 0 1 40%;
+			}
+
+			div:nth-of-type(odd) {
+				text-align: right;
+			}
+		}
+	}
+
+	hr {
+		width: 70%;
+	}
+
+	img {
+		width: 60%;
+		margin: auto;
+	}
+}
+
+#body-jobs {
+	background-color: $dark;
+}
+
+#body-projects {
+	background-color: $base;
+}
+
+#body-connect {
+	background-color: $dark;
+}
+
+a {
+	color: $text-color;
+	text-decoration: none;
+}
+
+h1 {
+	margin: 0;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+p {
+	margin: 0;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}

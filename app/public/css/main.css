@@ -1,0 +1,126 @@
+body {
+  background-color: #252525;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 16pt;
+  margin: 0;
+  display: flex; }
+
+#top {
+  background-color: #252525;
+  border-bottom: 4px solid #0B6C06;
+  display: flex;
+  font-size: 28pt;
+  height: 50px;
+  position: fixed;
+  width: 100%;
+  z-index: 10; }
+  #top a {
+    align-self: center;
+    padding-left: 10px; }
+
+#sidebar {
+  background-color: #454545;
+  border-right: 4px solid #0B6C06;
+  flex: 0 0 10%;
+  padding-top: 54px;
+  z-index: 9; }
+  #sidebar a {
+    display: block;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 10px; }
+  #sidebar a:hover {
+    background-color: white;
+    color: #252525; }
+  #sidebar nav {
+    position: fixed;
+    width: 10%; }
+
+#main {
+  flex: 1;
+  padding-top: 50px; }
+
+.section {
+  min-height: calc(100vh - 100px);
+  padding: 25px; }
+  .section h1 {
+    text-align: center;
+    margin-bottom: 30px; }
+
+#body-title {
+  background-color: #22531F;
+  padding: 0;
+  position: relative; }
+  #body-title #bg-img {
+    background-image: url("../img/dunes-lg.jpg");
+    background-position: center;
+    background-size: cover;
+    height: calc(100vh - 50px);
+    opacity: 0.5;
+    width: 100%; }
+  #body-title h1 {
+    bottom: 50vh;
+    font-size: 50pt;
+    left: 60px;
+    position: absolute; }
+
+#body-about-site {
+  background-color: #252525; }
+  #body-about-site p {
+    margin-bottom: 20px; }
+
+#body-about-me {
+  background-color: #454545; }
+  #body-about-me .flex-container {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-around; }
+    #body-about-me .flex-container > div {
+      align-items: flex-start;
+      display: flex;
+      flex: 0 1 50%; }
+    #body-about-me .flex-container > div:nth-of-type(1) {
+      align-content: center; }
+    #body-about-me .flex-container > div:nth-of-type(2) {
+      flex-wrap: wrap;
+      justify-content: space-around; }
+      #body-about-me .flex-container > div:nth-of-type(2) div {
+        flex: 0 1 40%; }
+      #body-about-me .flex-container > div:nth-of-type(2) div:nth-of-type(odd) {
+        text-align: right; }
+  #body-about-me hr {
+    width: 70%; }
+  #body-about-me img {
+    width: 60%;
+    margin: auto; }
+
+#body-jobs {
+  background-color: #252525; }
+
+#body-projects {
+  background-color: #22531F; }
+
+#body-connect {
+  background-color: #252525; }
+
+a {
+  color: white;
+  text-decoration: none; }
+
+h1 {
+  margin: 0; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+p {
+  margin: 0; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+/*# sourceMappingURL=main.css.map */
