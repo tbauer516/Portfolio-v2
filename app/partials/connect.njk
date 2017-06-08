@@ -1,0 +1,10 @@
+<div id="{{ section.id }}" class="section">
+	<h1>{{ section.title }}</h1>
+	<p>
+		<a href="{{ section.linkedin.url }}" target="_blank"><i class="icon ion-social-linkedin-outline"></i><span> {{ section.linkedin.text }}</span></a>
+		<a id="my-email" href="" data-toggle="tooltip" data-placement="top" data-trigger="click" title="My email is copied to your clipboard!"><i class="icon ion-email"></i><span> {{ section.email.text }}</span></a>
+	</p>
+	<p>
+		{{ section.closing }}
+	</p>
+</div>

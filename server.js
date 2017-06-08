@@ -9,11 +9,12 @@ const app = express();
 const oneDay = 0; //86400000;
 const port = 8108;
 
-app.set('view engine', 'html');
+app.set('view engine', 'njk');
 
 app.use(compression());
 
-nunjucks.configure(['app/partials', 'app/views'], {
+// nunjucks.configure(['app/partials', 'app/views'], {
+nunjucks.configure(['app'], {
 	autoescape: true,
 	express: app
 });

@@ -10,12 +10,12 @@
 		"nunjucks": "^3.0.0"
 	},
 	"devDependencies": {
-		"nodemon": "^1.11.0"
+		"nodemon": "latest"
 	},
 	"main": "server.js",
 	"scripts": {
 		"start": "node start.js",
-		"dev": "nodemon --watch ./app/ --watch ."
+		"dev": "nodemon server.js"
 	},
 	"author": "Tyler Bauer",
 	"license": "ISC"

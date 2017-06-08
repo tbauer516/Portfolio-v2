@@ -1,0 +1,39 @@
+<div id="{{ section.id }}" class="section">
+	<h1>{{ section.title }}</h1>
+	<div class="flex-container">
+		<div><img src="{{ section.body.img.src }}" alt="{{ section.body.img.alt }}"></div>
+		<div>
+			<div>
+				<ul>
+					<li>Date of Birth:</li>
+					<li>Education:</li>
+					<li>Degree:</li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+					<li>{{ section.body.dob }}</li>
+					<li>{{ section.body.school }}</li>
+					<li>{{ section.body.degree }}</li>
+				</ul>
+			</div>
+			<hr>
+			<div>
+				<p>Skills:</p>
+				<ul>
+					{% for skill in section.body.skills %}
+					<li>{{ skill }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div>
+				<p>Languages:</p>
+				<ul>
+					{% for language in section.body.languages %}
+					<li>{{ language }}</li>
+					{% endfor %}
+				</ul>
+			</div>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,13 @@
+<div id="{{ section.id }}" class="section">
+	<h1>{{ section.title }}</h1>
+	{% for project in section.projects %}
+	<div class="project">
+		<h1>{{ project.title }}</h1>
+		<a href="{{ project.demo }}" target="_blank"><div class="project-img" data-aspect-ratio="16:9"><img src="{{ project.img.url }}" alt="{{ project.img.alt }}"></div></a>
+		<p>{{ project.description }}</p>
+		<hr>
+		<p class="date">- Completed: {{ project.completed }}</p>
+		<a class="source" target="_blank" href="{{ project.source }}">Source Code</a>
+	</div>
+	{% endfor %}
+</div>

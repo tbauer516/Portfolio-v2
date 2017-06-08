@@ -1,8 +1,9 @@
 module.exports = function(app) {
 
 	app.get('/', function(req, res) {
-		res.render('index', {
-			title: 'Portfolio Home Page'
+		res.render('views/index.html', {
+			title: 'Portfolio Home Page',
+			data: require("./data/index.json")
 		});
 	});
 
