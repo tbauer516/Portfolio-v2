@@ -15,20 +15,222 @@ $border-width: 4px;
 
 $sidebar-width: 10%;
 
+$margin-header: 30px;
+$margin-block: 20px;
+$margin-content: 10px;
+
+// ====================================================
+// CSS for default elements ===========================
+// ====================================================
+
+a {
+	color: $text-color;
+	text-decoration: none;
+}
+
 body {
 	background-color: $dark;
 	color: white;
 	font-family: 'Josefin Sans', sans-serif;
-	font-size: 16pt;
+	font-size: 1.7em;
 	margin: 0;
 	display: flex;
 }
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+hr {
+	width: 90%;
+}
+
+html {
+	font-size: 16px;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+p {
+	margin: 0;
+}
+
+p, li {
+	font-size: .85em;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+// ====================================================
+// CSS for mixins to build classes ====================
+// ====================================================
+
+@mixin flex-col($num-col) {
+	.body {
+		display: flex;
+		flex-wrap: nowrap;
+		justify-content: space-around;
+
+		& > div {
+			align-items: flex-start;
+			flex: 0 1 (100% / $num-col);
+		}
+
+		@content;
+	}
+}
+
+// ====================================================
+// CSS for reusable classes ===========================
+// ====================================================
+
+.section {
+	min-height: calc(100vh - 100px);
+	padding: 25px;
+
+	h2 {
+		text-align: center;
+		margin-bottom: $margin-header;
+	}
+}
+
+.title-text {
+	background-color: $dark;
+
+	.body {
+		p {
+			margin-bottom: $margin-block;
+		}
+	}
+}
+
+.title-two-col-img-lists {
+	background-color: $gray;
+
+	@include flex-col(2) {
+		& > div {
+			display: flex;
+		}
+
+		& > div:nth-of-type(1) {
+			align-content: center;
+		}
+
+		& > div:nth-of-type(2) {
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+			div {
+				flex: 0 1 40%;
+			}
+
+			div:nth-of-type(odd) {
+				text-align: right;
+			}
+		}
+
+		img {
+			width: 60%;
+			margin: auto;
+		}
+	}
+}
+
+.list-of-jobs {
+	background-color: $dark;
+
+	.body {
+		& > div {
+			border: 4px solid $gray;
+			margin-bottom: $margin-block;
+			padding: 10px;
+
+			h3 {
+				margin-bottom: $margin-content;
+			}
+			p:nth-of-type(1) {
+				font-weight: bold;
+				font-size: .9em;
+			}
+			p:nth-of-type(2) {
+				font-size: .65em;
+			}
+			p {
+				margin-bottom: $margin-content;
+			}
+		}
+	}
+}
+
+.list-of-projects {
+	background-color: $base;
+
+	.body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		& > div {
+			border: 4px solid $lighter;
+			margin-bottom: $margin-block;
+			padding: 10px;
+			max-width: calc((100% / 2) - #{ $margin-block / 2 });
+
+			align-items: flex-start;
+			flex: 0 1 (100% / 2);
+			box-sizing: border-box;
+
+			h3 {
+				margin-bottom: $margin-content;
+				text-align: center;
+			}
+			a > div {
+				width: 100%;
+				padding-bottom: calc(100% * 9 / 16);
+			}
+			p:nth-of-type(2) {
+				font-size: .65em;
+			}
+			p {
+				margin-bottom: $margin-content;
+			}
+		}
+
+		& > div:nth-of-type(odd) {
+			margin-right: $margin-block / 2;
+		}
+
+		& > div:nth-of-type(even) {
+			margin-left: $margin-block / 2;
+		}
+	}
+}
+
+.closing {
+	background-color: $dark;
+
+	.body {
+
+	}
+}
+
+// ====================================================
+// CSS for top and navigation for the page ============
+// ====================================================
 
 #top {
 	background-color: $dark;
 	border-bottom: $border-width solid $lighter;
 	display: flex;
-	font-size: 28pt;
+	// font-size: 2.3em;
+	font-size: 50px;
 	height: $top-height;
 	position: fixed;
 	width: 100%;
@@ -70,15 +272,9 @@ body {
 	padding-top: $top-height;
 }
 
-.section {
-	min-height: calc(100vh - 100px);
-	padding: 25px;
-
-	h1 {
-		text-align: center;
-		margin-bottom: 30px;
-	}
-}
+// ====================================================
+// CSS for Each Section ===============================
+// ====================================================
 
 #body-title {
 	background-color: $base;
@@ -96,94 +292,35 @@ body {
 
 	h1 {
 		bottom: 50vh;
-		font-size: 50pt;
+		// font-size: 4em;
+		font-size: 5rem;
 		left: 60px;
 		position: absolute;
 	}
 }
 
-#body-about-site {
+.list-of-jobs {
 	background-color: $dark;
 
-	p {
-		margin-bottom: 20px;
-	}
-}
-
-#body-about-me {
-	background-color: $gray;
-	
-	.flex-container {
-		display: flex;
-		flex-wrap: nowrap;
-		justify-content: space-around;
-
+	.body {
 		& > div {
-			align-items: flex-start;
-			display: flex;
-			flex: 0 1 50%;
-		}
+			border: 4px solid $gray;
+			margin-bottom: $margin-block;
+			padding: 10px;
 
-		& > div:nth-of-type(1) {
-			align-content: center;
-		}
-
-		& > div:nth-of-type(2) {
-			flex-wrap: wrap;
-			justify-content: space-around;
-
-			div {
-				flex: 0 1 40%;
+			h3 {
+				margin-bottom: $margin-content;
 			}
-
-			div:nth-of-type(odd) {
-				text-align: right;
+			p:nth-of-type(1) {
+				font-weight: bold;
+				font-size: .9em;
+			}
+			p:nth-of-type(2) {
+				font-size: .65em;
+			}
+			p {
+				margin-bottom: $margin-content;
 			}
 		}
 	}
-
-	hr {
-		width: 70%;
-	}
-
-	img {
-		width: 60%;
-		margin: auto;
-	}
-}
-
-#body-jobs {
-	background-color: $dark;
-}
-
-#body-projects {
-	background-color: $base;
-}
-
-#body-connect {
-	background-color: $dark;
-}
-
-a {
-	color: $text-color;
-	text-decoration: none;
-}
-
-h1 {
-	margin: 0;
-}
-
-img {
-	width: 100%;
-	height: auto;
-}
-
-p {
-	margin: 0;
-}
-
-ul {
-	list-style: none;
-	margin: 0;
-	padding: 0;
 }

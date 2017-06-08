@@ -1,11 +1,13 @@
-<div id="{{ section.id }}" class="section">
-	<h1>{{ section.title }}</h1>
-	{% for job in section.jobs %}
-	<div>
-		<h3>{{ job.company }}</h3>
-		<p>{{ job.title }}</p>
-		<p>{{ job.start }} - {{ job.end }}</p>
-		<p>{{ job.description }}</p>
+<div id="{{ section.id }}" class="section list-of-jobs">
+	<h2>{{ section.title }}</h2>
+	<div class="body">
+		{% for job in section.jobs %}
+		<div>
+			<h3>{{ job.company }}</h3>
+			<p>{{ job.title }}</p>
+			<p>{{ job.start }} - {{ job.end }}</p>
+			<p>{{ job.description }}</p>
+		</div>
+		{% endfor %}
 	</div>
-	{% endfor %}
 </div>

@@ -1,8 +1,10 @@
-<div id="{{ section.id }}" class="section">
-	<h1>{{ section.title }}</h1>
-	{% for text in section.body %}
-	<p>
-		{{ text }}
-	</p>
-	{% endfor %}
+<div id="{{ section.id }}" class="section title-text">
+	<h2>{{ section.title }}</h2>
+	<div class="body">
+		{% for text in section.body %}
+		<p>
+			{{ text }}
+		</p>
+		{% endfor %}
+	</div>
 </div>
