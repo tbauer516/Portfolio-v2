@@ -1,12 +1,12 @@
-<div id="{{ section.id }}" class="section closing">
-	<h2>{{ section.title }}</h2>
-	<div class="body">
-		<p>
-			<a href="{{ section.linkedin.url }}" target="_blank"><i class="icon ion-social-linkedin-outline"></i><span> {{ section.linkedin.text }}</span></a>
-			<a id="my-email" href="" data-toggle="tooltip" data-placement="top" data-trigger="click" title="My email is copied to your clipboard!"><i class="icon ion-email"></i><span> {{ section.email.text }}</span></a>
-		</p>
-		<p>
-			{{ section.closing }}
-		</p>
-	</div>
-</div>
+{% set class = "closing" %}
+{% extends "partials/section.njk" %}
+
+{% block content %}
+<h3>
+	<a href="{{ section.linkedin.url }}" target="_blank"><i class="icon ion-social-linkedin-outline"></i><span> {{ section.linkedin.text }}</span></a>
+	<a id="my-email" href="" data-toggle="tooltip" data-placement="top" data-trigger="click" title="My email is copied to your clipboard!"><i class="icon ion-email"></i><span> {{ section.email.text }}</span></a>
+</h3>
+<p>
+	{{ section.closing }}
+</p>
+{% endblock %}

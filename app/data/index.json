@@ -1,10 +1,11 @@
 {
 	"top": "TB",
 	"sidebar": [
-		{"id": "intro", "text": "Intro"},
-		{"id": "about", "text": "About"},
-		{"id": "projects", "text": "Projects"},
-		{"id": "connect", "text": "Connect"}
+		{"id": "body-about-site", "text": "Intro"},
+		{"id": "body-about-me", "text": "About"},
+		{"id": "body-jobs", "text": "Work"},
+		{"id": "body-projects", "text": "Projects"},
+		{"id": "body-connect", "text": "Connect"}
 	],
 	"title": "Tyler Bauer",
 	"section": {

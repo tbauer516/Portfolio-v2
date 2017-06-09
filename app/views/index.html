@@ -4,11 +4,13 @@
 {% include "partials/head.html" %}
 
 <body>
+	<input type="checkbox" id="nav-trigger">
 	<div id="top">
 		<a href="#">{{ data.top }}</a>
+		<label for="nav-trigger">&#9776;</label>
 	</div>
 
-	<div  id="sidebar">
+	<div id="sidebar">
 		<nav>
 			<ul>
 				{% for link in data.sidebar %}

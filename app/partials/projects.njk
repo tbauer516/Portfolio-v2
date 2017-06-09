@@ -1,19 +1,19 @@
-<div id="{{ section.id }}" class="section list-of-projects">
-	<h2>{{ section.title }}</h2>
-	<div class="body">
-		{% for project in section.projects %}
-		<div class="project">
-			<h3>{{ project.title }}</h3>
-			<a href="{{ project.demo }}" target="_blank">
-				<div>
-					<img src="{{ project.img.url }}" alt="{{ project.img.alt }}">
-				</div>
-			</a>
-			<p>{{ project.description }}</p>
-			<hr>
-			<p class="date">- Completed: {{ project.completed }}</p>
-			<a class="source" target="_blank" href="{{ project.source }}">Source Code</a>
-		</div>
-		{% endfor %}
+{% set class = "list-of-projects" %}
+{% extends "partials/section.njk" %}
+
+{% block content %}
+{% for project in section.projects %}
+	<div class="project">
+		<h3>{{ project.title }}</h3>
+		<a href="{{ project.demo }}" target="_blank">
+			<div>
+				<img src="{{ project.img.url }}" alt="{{ project.img.alt }}">
+			</div>
+		</a>
+		<p>{{ project.description }}</p>
+		<hr>
+		<p class="date">- Completed: {{ project.completed }}</p>
+		<a class="source" target="_blank" href="{{ project.source }}">Source Code</a>
 	</div>
-</div>
+{% endfor %}
+{% endblock %}

@@ -1,13 +1,13 @@
-<div id="{{ section.id }}" class="section list-of-jobs">
-	<h2>{{ section.title }}</h2>
-	<div class="body">
-		{% for job in section.jobs %}
-		<div>
-			<h3>{{ job.company }}</h3>
-			<p>{{ job.title }}</p>
-			<p>{{ job.start }} - {{ job.end }}</p>
-			<p>{{ job.description }}</p>
-		</div>
-		{% endfor %}
+{% set class = "list-of-jobs" %}
+{% extends "partials/section.njk" %}
+
+{% block content %}
+{% for job in section.jobs %}
+	<div>
+		<h3>{{ job.company }}</h3>
+		<p>{{ job.title }}</p>
+		<p>{{ job.start }} - {{ job.end }}</p>
+		<p>{{ job.description }}</p>
 	</div>
-</div>
+{% endfor %}
+{% endblock %}

@@ -1,39 +1,39 @@
-<div id="{{ section.id }}" class="section title-two-col-img-lists">
-	<h2>{{ section.title }}</h2>
-	<div class="body">
-		<div><img src="{{ section.body.img.src }}" alt="{{ section.body.img.alt }}"></div>
-		<div>
-			<div>
-				<ul>
-					<li>Date of Birth:</li>
-					<li>Education:</li>
-					<li>Degree:</li>
-				</ul>
-			</div>
-			<div>
-				<ul>
-					<li>{{ section.body.dob }}</li>
-					<li>{{ section.body.school }}</li>
-					<li>{{ section.body.degree }}</li>
-				</ul>
-			</div>
-			<hr>
-			<div>
-				<p>Skills:</p>
-				<ul>
-					{% for skill in section.body.skills %}
-					<li>{{ skill }}</li>
-					{% endfor %}
-				</ul>
-			</div>
-			<div>
-				<p>Languages:</p>
-				<ul>
-					{% for language in section.body.languages %}
-					<li>{{ language }}</li>
-					{% endfor %}
-				</ul>
-			</div>
-		</div>
+{% set class = "title-two-col-img-lists" %}
+{% extends "partials/section.njk" %}
+
+{% block content %}
+<div><img src="{{ section.body.img.src }}" alt="{{ section.body.img.alt }}"></div>
+<div>
+	<div>
+		<ul>
+			<li>Date of Birth:</li>
+			<li>Education:</li>
+			<li>Degree:</li>
+		</ul>
+	</div>
+	<div>
+		<ul>
+			<li>{{ section.body.dob }}</li>
+			<li>{{ section.body.school }}</li>
+			<li>{{ section.body.degree }}</li>
+		</ul>
+	</div>
+	<hr>
+	<div>
+		<p>Skills:</p>
+		<ul>
+			{% for skill in section.body.skills %}
+			<li>{{ skill }}</li>
+			{% endfor %}
+		</ul>
+	</div>
+	<div>
+		<p>Languages:</p>
+		<ul>
+			{% for language in section.body.languages %}
+			<li>{{ language }}</li>
+			{% endfor %}
+		</ul>
 	</div>
 </div>
+{% endblock %}

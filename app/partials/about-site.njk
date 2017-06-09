@@ -1,10 +1,10 @@
-<div id="{{ section.id }}" class="section title-text">
-	<h2>{{ section.title }}</h2>
-	<div class="body">
-		{% for text in section.body %}
-		<p>
-			{{ text }}
-		</p>
-		{% endfor %}
-	</div>
-</div>
+{% set class = "title-text" %}
+{% extends "partials/section.njk" %}
+
+{% block content %}
+{% for text in section.body %}
+	<p>
+		{{ text }}
+	</p>
+{% endfor %}
+{% endblock %}
