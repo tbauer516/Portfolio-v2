@@ -8,7 +8,9 @@ $dark: #252525;
 $gray: #454545;
 $lighter: #0B6C06;
 $bright: #08A700;
+
 $text-color: white;
+$text-color-focus: $base;
 
 $top-height: 50px;
 $border-width: 4px;
@@ -26,6 +28,11 @@ $margin-content: 10px;
 a {
 	color: $text-color;
 	text-decoration: none;
+
+	&:hover, &:focus {
+		color: $text-color-focus;
+		background-color: $text-color;
+	}
 }
 
 body {
@@ -193,7 +200,7 @@ ul {
 			}
 			a > div {
 				width: 100%;
-				padding-bottom: calc(100% * 9 / 16);
+				// padding-bottom: calc(100% * 9 / 16);
 			}
 			p:nth-of-type(2) {
 				font-size: .65em;
@@ -282,7 +289,7 @@ ul {
 	position: relative;
 
 	#bg-img {
-		background-image: url('../img/dunes-lg.jpg');
+		background-image: url('../img/top/dunes-lg.jpg');
 		background-position: center;
 		background-size: cover;
 		height: calc(100vh - 50px);
@@ -296,31 +303,5 @@ ul {
 		font-size: 5rem;
 		left: 60px;
 		position: absolute;
-	}
-}
-
-.list-of-jobs {
-	background-color: $dark;
-
-	.body {
-		& > div {
-			border: 4px solid $gray;
-			margin-bottom: $margin-block;
-			padding: 10px;
-
-			h3 {
-				margin-bottom: $margin-content;
-			}
-			p:nth-of-type(1) {
-				font-weight: bold;
-				font-size: .9em;
-			}
-			p:nth-of-type(2) {
-				font-size: .65em;
-			}
-			p {
-				margin-bottom: $margin-content;
-			}
-		}
 	}
 }

@@ -22,7 +22,7 @@
 			"id": "body-about-me",
 			"title": "About Me",
 			"body": {
-				"img": {"src": "/static/img/profile.jpg", "alt": "headshot of Tyler Bauer"},
+				"img": {"src": "/static/img/profile/profile.jpg", "alt": "headshot of Tyler Bauer"},
 				"dob": "May 16th, 1995",
 				"school": "University of Washington",
 				"degree": "Bachelor's of Science in Informatics",
@@ -78,7 +78,7 @@
 				{
 					"title": "Seattle Crime",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/seattlecrime.jpg",
 						"alt": "Seattle Crime screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/INFO370-Website/",
@@ -89,7 +89,7 @@
 				{
 					"title": "Click Accuracy",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/clickaccuracy.jpg",
 						"alt": "Click Accuracy screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/ClickAccuracy/",
@@ -100,7 +100,7 @@
 				{
 					"title": "Location Tagger",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/locationtagger.jpg",
 						"alt": "Location Tagger screenshot"
 					},
 					"demo": "http://imgur.com/a/QYk7M",
@@ -111,7 +111,7 @@
 				{
 					"title": "ToDo List",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/todolist.jpg",
 						"alt": "ToDo List screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/Todo%20List/#/",
@@ -122,7 +122,7 @@
 				{
 					"title": "Dawg Coffee",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/dawgcoffee.jpg",
 						"alt": "Dawg Coffee screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/dawg-coffee/#/",
@@ -133,7 +133,7 @@
 				{
 					"title": "Sound Cloud Challenge",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/soundcloud.jpg",
 						"alt": "Sound Cloud screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/soundcloud/",
@@ -144,7 +144,7 @@
 				{
 					"title": "Product Review",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/review.jpg",
 						"alt": "Product Review screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/reviewer/",
@@ -155,7 +155,7 @@
 				{
 					"title": "Police Shooting Map",
 					"img": {
-						"url": "",
+						"url": "/static/img/projects/policeshooting.jpg",
 						"alt": "Police Shooting Map screenshot"
 					},
 					"demo": "http://tbauer516.github.io/WorkExamples/shooting-map/",

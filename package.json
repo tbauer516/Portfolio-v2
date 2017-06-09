@@ -4,10 +4,11 @@
 	"description": "Test environment for my practice publishing a node server",
 	"private": true,
 	"dependencies": {
+		"compression": "^1.6.2",
 		"express": "^4.15.2",
 		"http-master": "^1.2.6",
-		"compression": "^1.6.2",
-		"nunjucks": "^3.0.0"
+		"nunjucks": "^3.0.0",
+		"phantomjs": "^2.1.7"
 	},
 	"devDependencies": {
 		"nodemon": "latest"
