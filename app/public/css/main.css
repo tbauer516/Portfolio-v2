@@ -41,6 +41,16 @@ ul {
   margin: 0;
   padding: 0; }
 
+.tooltip {
+  position: absolute;
+  font-size: .6em;
+  margin: 20px 0 0 10px;
+  opacity: 0;
+  transition: opacity 2s; }
+
+.tooltip-active {
+  opacity: 1; }
+
 #nav-trigger {
   position: fixed;
   clip: rect(0, 0, 0, 0); }
@@ -53,7 +63,7 @@ ul {
 #nav-trigger ~ #sidebar {
   top: -500px;
   transition: top 0.75s;
-  transition-timing-function: ease-in; }
+  transition-timing-function: ease-out; }
 
 .section {
   min-height: calc(100vh - 2 * 50px);
@@ -162,6 +172,10 @@ ul {
       border: 4px solid #454545;
       display: inline-block;
       padding: 5px 10px 5px 10px; }
+      .closing .body > h3 a:nth-of-type(odd) {
+        margin: 0 15px 0 0; }
+      .closing .body > h3 a:nth-of-type(even) {
+        margin: 0 0 0 15px; }
     .closing .body p {
       text-align: initial; }
 
@@ -215,7 +229,7 @@ ul {
     padding-top: 5px;
     padding-bottom: 5px;
     padding-left: 10px; }
-  #sidebar a:hover {
+  #sidebar a:hover, #sidebar a.active {
     background-color: white;
     color: #252525; }
   #sidebar nav {
@@ -233,18 +247,18 @@ ul {
     #main {
       flex: 1; } }
 
-#body-title {
+#main > .section:nth-of-type(1) {
   background-color: #22531F;
   padding: 0;
   position: relative; }
-  #body-title #bg-img {
+  #main > .section:nth-of-type(1) #bg-img {
     background-image: url("../img/top/dunes-lg.jpg");
     background-position: center;
     background-size: cover;
     height: calc(100vh - 50px);
     opacity: 0.5;
     width: 100%; }
-  #body-title h1 {
+  #main > .section:nth-of-type(1) h1 {
     bottom: 50vh;
     font-size: 5rem;
     left: 60px;

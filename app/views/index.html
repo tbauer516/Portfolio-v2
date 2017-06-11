@@ -21,25 +21,15 @@
 	</div>
 
 	<div id="main">
-		<div id="body-title" class="section">
+		<div class="section">
+			<span id="body-title" tabindex="-1"></span>
 			<div id="bg-img"></div>
 			<h1>{{ data.title }}</h1>
 		</div>
 
-		{% set section = data.section.aboutSite %}
-		{% include "partials/about-site.njk" %}
-		
-		{% set section = data.section.aboutMe %}
-		{% include "partials/about-me.njk" %}
-
-		{% set section = data.section.jobs %}
-		{% include "partials/jobs.njk" %}
-
-		{% set section = data.section.projects %}
-		{% include "partials/projects.njk" %}
-
-		{% set section = data.section.connect %}
-		{% include "partials/connect.njk" %}
+		{% for section in data.section %}
+			{% include "partials/" + (section.id | replace('body-', '')) + ".njk" %}
+		{% endfor %}
 
 	</div>
 
