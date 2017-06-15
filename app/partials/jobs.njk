@@ -2,7 +2,7 @@
 {% extends "partials/section.njk" %}
 
 {% block content %}
-{% for job in section.jobs %}
+{% for job in section.body %}
 	<div>
 		<h3>{{ job.company }}</h3>
 		<p>{{ job.title }}</p>

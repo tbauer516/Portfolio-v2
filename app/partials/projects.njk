@@ -2,12 +2,12 @@
 {% extends "partials/section.njk" %}
 
 {% block content %}
-{% for project in section.projects %}
+{% for project in section.body %}
 	<div class="project">
 		<h3>{{ project.title }}</h3>
 		<a href="{{ project.demo }}" target="_blank">
 			<div>
-				<img src="{{ project.img.url }}" alt="{{ project.img.alt }}">
+				<img src="/static/img/projects/{{ project.title | replace(' ', '-') | lower }}.jpg" alt="{{ project.title }} screenshot">
 			</div>
 		</a>
 		<p>{{ project.description }}</p>

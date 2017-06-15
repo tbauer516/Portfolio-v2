@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+{% include "partials/edit-head.njk" %}
+
+<body>
+	
+	<h1>{{ type }}: {{ id }}</h1>
+
+	<form action="/edit/{{ type }}/{{ id }}" method="POST">
+	
+		<div class="body">
+			{% for key, val in data %}
+				{% if getType(val) === 'value' %}
+
+					<label for="{{ key }}">{{ key }}</label>
+					{% if key == 'description' %}
+					<textarea name="{{ key }}" rows="5">{{ val }}</textarea>
+					{% else %}
+					<input type="text" name="{{ key }}" value="{{ val }}">
+					{% endif %}
+
+				{% endif %}
+			{% endfor %}
+		</div>
+		
+		<button type="submit">Submit</button>
+		<a href="/" class="button cancel"><button type="button">Cancel</button></a>
+	</form>
+
+</body>
+
+</html>

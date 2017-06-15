@@ -1,9 +1,14 @@
-a {
-  color: white;
-  text-decoration: none; }
-  a:hover, a:focus {
-    color: #22531F;
-    background-color: white; }
+a:hover, a:focus {
+  color: #22531F;
+  background-color: white; }
+a, a.button, a.button:hover {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer; }
+  a, a button, a.button, a.button button, a.button:hover, a.button:hover button {
+    color: white; }
+  a button, a.button button, a.button:hover button {
+    background-color: #454545; }
 
 body {
   background-color: #252525;
@@ -16,6 +21,10 @@ body {
   @media screen and (min-width: 992px) {
     body {
       flex-wrap: nowrap; } }
+
+button {
+  background-color: #0B6C06;
+  cursor: pointer; }
 
 h1, h2, h3 {
   margin: 0; }
@@ -66,6 +75,7 @@ ul {
   transition-timing-function: ease-out; }
 
 .section {
+  min-height: 900px;
   min-height: calc(100vh - 2 * 50px);
   padding: 25px 25px 25px 25px;
   position: relative; }
@@ -218,8 +228,9 @@ ul {
   flex: 0 1 100%;
   position: fixed;
   top: -500px;
-  z-index: 1;
   width: 100%; }
+  #sidebar, #sidebar nav {
+    z-index: 1; }
   @media screen and (min-width: 992px) {
     #sidebar {
       flex: 0 0 10%;
@@ -251,11 +262,12 @@ ul {
   background-color: #22531F;
   padding: 0;
   position: relative; }
+  #main > .section:nth-of-type(1), #main > .section:nth-of-type(1) #bg-img {
+    min-height: calc(100vh - 50px); }
   #main > .section:nth-of-type(1) #bg-img {
     background-image: url("../img/top/dunes-lg.jpg");
     background-position: center;
     background-size: cover;
-    height: calc(100vh - 50px);
     opacity: 0.5;
     width: 100%; }
   #main > .section:nth-of-type(1) h1 {

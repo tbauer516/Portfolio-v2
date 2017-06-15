@@ -4,11 +4,12 @@
 	"description": "Test environment for my practice publishing a node server",
 	"private": true,
 	"dependencies": {
+		"body-parser": "^1.17.2",
 		"compression": "^1.6.2",
 		"express": "^4.15.2",
 		"http-master": "^1.2.6",
 		"nunjucks": "^3.0.0",
-		"phantomjs": "^2.1.7"
+		"slimerjs": "^0.10.3"
 	},
 	"devDependencies": {
 		"nodemon": "latest"
@@ -16,7 +17,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node start.js",
-		"dev": "nodemon server.js"
+		"dev": "nodemon -e js,html,njk,css server.js"
 	},
 	"author": "Tyler Bauer",
 	"license": "ISC"

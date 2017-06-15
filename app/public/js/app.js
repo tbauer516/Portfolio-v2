@@ -1,7 +1,21 @@
 // Do stuff on page load
 
+let $sections = $('.section');
+let $window = $(window);
+let topHeight = 50;
+
+let doResize = () => {
+	for (let i = 0; i < $sections.length; i++) {
+		$sections.eq(i).css('min-height', $window.height() - ((i !== 0 ? 2 : 1) * topHeight));
+	}
+}
+
+$window.resize(() => {
+	doResize();
+});
+
 $(document).ready(() => {
-	
+	doResize();
 });
 
 // =================================================
@@ -13,7 +27,7 @@ const topMenuHeight = 54;
 const menuItems = $('#sidebar a, #top a');
 const scrollItems = menuItems.map((_, item) => {
 	let hash = $(item)[0].hash;
-	let elem = '#body-title';
+	let elem = '#title';
 	if (hash !== '')
 		elem = hash;
 	return $(elem);
@@ -25,7 +39,7 @@ const scrollItems = menuItems.map((_, item) => {
 
 menuItems.click((event) => {
 	const hash = $(event.target)[0].hash;
-	let elem = $('#body-title');
+	let elem = $('#title');
 	if (hash !== '')
 		elem = $(hash);
 

@@ -1,0 +1,339 @@
+@import 'base';
+
+// ====================================================
+// CSS for button navigation ==========================
+// ====================================================
+
+#nav-trigger {
+	position: fixed;
+	clip: rect(0, 0, 0, 0);
+}
+
+#nav-trigger:checked ~ #sidebar {
+	top: 0;
+	transition: top 0.75s;
+	transition-timing-function: ease-out;
+}
+
+#nav-trigger ~ #sidebar {
+	top: -$nav-off-screen-dist;
+	transition: top 0.75s;
+	transition-timing-function: ease-out;
+}
+
+// ====================================================
+// CSS for mixins to build classes ====================
+// ====================================================
+
+@mixin flex-col($num-col) {
+	.body {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+
+		& > div {
+			align-items: flex-start;
+			flex: 0 1 100%;
+
+			@media screen and (min-width: $lg) {
+				flex: 0 1 (100% / $num-col);
+			}
+		}
+
+		@content;
+	}
+}
+
+// ====================================================
+// CSS for reusable classes ===========================
+// ====================================================
+
+.section {
+	min-height: 900px;
+	min-height: calc(100vh - 2 * #{ $top-height });
+	padding: 25px 25px 25px 25px;
+	position: relative;
+
+	& > span {
+		top: -$top-height;
+		position: absolute;
+	}
+
+	h2 {
+		text-align: center;
+		margin-bottom: $margin-header;
+	}
+}
+
+.title-text {
+	background-color: $dark;
+
+	.body {
+		p {
+			margin-bottom: $margin-block;
+		}
+	}
+}
+
+.title-two-col-img-lists {
+	background-color: $gray;
+
+	@include flex-col(2) {
+		& > div {
+			display: flex;
+		}
+
+		& > div:nth-of-type(1) {
+			align-content: center;
+			margin-bottom: $margin-block;
+
+			@media screen and (min-width: $lg) {
+				margin: 0;
+			}
+		}
+
+		& > div:nth-of-type(2) {
+			flex-wrap: wrap;
+			justify-content: space-around;
+
+			div {
+				flex: 0 1 40%;
+			}
+
+			div:nth-of-type(odd) {
+				text-align: right;
+			}
+		}
+
+		img {
+			width: 60%;
+			margin: auto;
+		}
+	}
+}
+
+.list-of-jobs {
+	background-color: $dark;
+
+	.body {
+		& > div {
+			border: 4px solid $gray;
+			margin-bottom: $margin-block;
+			padding: 10px;
+
+			h3 {
+				margin-bottom: $margin-content;
+			}
+			p:nth-of-type(1) {
+				font-weight: bold;
+				font-size: .9em;
+			}
+			p:nth-of-type(2) {
+				font-size: .65em;
+			}
+			p {
+				margin-bottom: $margin-content;
+			}
+		}
+	}
+}
+
+.list-of-projects {
+	background-color: $base;
+
+	@include flex-col(2) {
+
+		& > div {
+			border: 4px solid $lighter;
+			margin-bottom: $margin-block;
+			padding: 10px;
+			box-sizing: border-box;
+
+			@media screen and (min-width: $lg) {
+				max-width: calc((100% / 2) - #{ $margin-block / 2 });
+			}
+
+			h3 {
+				margin-bottom: $margin-content;
+				text-align: center;
+			}
+			a > div {
+				width: 100%;
+				// padding-bottom: calc(100% * 9 / 16);
+			}
+			p:nth-of-type(2) {
+				font-size: .65em;
+			}
+			p {
+				margin-bottom: $margin-content;
+			}
+		}
+
+		@media screen and (min-width: $lg) {
+			& > div:nth-of-type(odd) {
+				margin-right: $margin-block / 2;
+			}
+
+			& > div:nth-of-type(even) {
+				margin-left: $margin-block / 2;
+			}
+		}
+	}
+}
+
+.closing {
+	background-color: $dark;
+
+	.body {
+		text-align: center;
+
+		& > h3 {
+			margin-bottom: $margin-block;
+			border: 4px solid $gray;
+			display: inline-block;
+			padding: 5px 10px 5px 10px;
+
+			a:nth-of-type(odd) {
+				margin: 0 15px 0 0;
+			}
+
+			a:nth-of-type(even) {
+				margin: 0 0 0 15px;
+			}
+		}
+		p {
+			text-align: initial;
+		}
+	}
+}
+
+// ====================================================
+// CSS for top and navigation for the page ============
+// ====================================================
+
+#top {
+	background-color: $dark;
+	border-bottom: $border-width solid $lighter;
+	display: flex;
+	// font-size: 2.3em;
+	font-size: 50px;
+	height: $top-height;
+	position: fixed;
+	width: 100%;
+	z-index: 10;
+
+	a, label[for="nav-trigger"] {
+		align-self: center;
+		padding-left: 10px;
+		display: inline-block;
+	}
+
+	a {
+		margin-right: auto;
+	}
+
+	label[for="nav-trigger"] {
+		display: inline-block;
+		margin-right: 10px;
+		padding: 2px 10px 2px 10px;
+		border: 2px solid $gray;
+		border-radius: 5px;
+		max-height: 40px;
+		font-size: 30px;
+		cursor: pointer;
+
+		@media screen and (min-width: $lg) {
+			display: none;
+		}
+	}
+
+	a:hover, a:focus {
+		color: $text-color;
+		background-color: transparent;
+	}
+}
+
+#sidebar {
+	background-color: $gray;
+	border-right: $border-width solid $lighter;
+	padding-top: $top-height + $border-width;
+	z-index: 9;
+	flex: 0 1 100%;
+	position: fixed;
+	top: -$nav-off-screen-dist;
+	width: 100%;
+	
+	&, nav {
+		z-index: 1;
+	}
+
+	@media screen and (min-width: $lg) {
+		flex: 0 0 $sidebar-width;
+		position: initial;
+	}
+
+	a {
+		display: block;
+		padding-top: 5px;
+		padding-bottom: 5px;
+		padding-left: 10px;
+	}
+
+	a:hover, a.active {
+		background-color: white;
+		color: $dark;
+	}
+
+	nav {
+		position: initial;
+		width: 100%;
+
+		@media screen and (min-width: $lg) {
+			position: fixed;
+			width: $sidebar-width;
+		}
+	}
+}
+
+#main {
+	padding-top: $top-height;
+	flex: 0 1 100%;
+
+	@media screen and (min-width: $lg) {
+		flex: 1;
+	}
+}
+
+// ====================================================
+// CSS for Each Section ===============================
+// ====================================================
+
+#main > .section:nth-of-type(1) {
+	background-color: $base;
+	padding: 0;
+	position: relative;
+
+	& ,#bg-img {
+		min-height: calc(100vh - #{ $top-height });
+	}
+
+	#bg-img {
+		background-image: url('../img/top/dunes-lg.jpg');
+		background-position: center;
+		background-size: cover;
+		opacity: 0.5;
+		width: 100%;
+	}
+
+	h1 {
+		bottom: 50vh;
+		// font-size: 4em;
+		font-size: 5rem;
+		left: 60px;
+		position: absolute;
+	}
+}
+
+// #main > .section:nth-of-type(1), #main > .section:nth-of-type(1) #bg-img, .section {
+// 	min-height: 90px;
+// }

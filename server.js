@@ -2,16 +2,21 @@ const express = require('express');
 const fs = require('fs');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
+const bodyParser = require('body-parser');
 const app = express();
 
 // Server Hosting Code Below
 
 const oneDay = 0; //86400000;
-const port = 8108;
+const port = process.env.PORT || 8108;
 
 app.set('view engine', 'njk');
 
 app.use(compression());
+app.use( bodyParser.json() );
+app.use( bodyParser.urlencoded({
+	extended: true
+}));
 
 // nunjucks.configure(['app/partials', 'app/views'], {
 nunjucks.configure(['app'], {

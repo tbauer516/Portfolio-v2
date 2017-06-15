@@ -1,0 +1,96 @@
+a:hover, a:focus {
+  color: #22531F;
+  background-color: white; }
+a, a.button, a.button:hover {
+  text-decoration: none;
+  background-color: transparent;
+  cursor: pointer; }
+  a, a button, a.button, a.button button, a.button:hover, a.button:hover button {
+    color: white; }
+  a button, a.button button, a.button:hover button {
+    background-color: #454545; }
+
+body {
+  background-color: #252525;
+  color: white;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 1.7em;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap; }
+  @media screen and (min-width: 992px) {
+    body {
+      flex-wrap: nowrap; } }
+
+button {
+  background-color: #0B6C06;
+  cursor: pointer; }
+
+h1, h2, h3 {
+  margin: 0; }
+
+hr {
+  width: 90%; }
+
+html {
+  font-size: 16px; }
+
+img {
+  width: 100%;
+  height: auto; }
+
+p {
+  margin: 0; }
+
+p, li {
+  font-size: .85em; }
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
+
+.tooltip {
+  position: absolute;
+  font-size: .6em;
+  margin: 20px 0 0 10px;
+  opacity: 0;
+  transition: opacity 2s; }
+
+.tooltip-active {
+  opacity: 1; }
+
+body {
+  display: block;
+  margin: 50px; }
+
+h1 {
+  margin-bottom: 20px; }
+
+div.body {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1000px; }
+  div.body > label, div.body > input, div.body > textarea {
+    display: inline-block;
+    margin: 10px 0 10px 0; }
+  div.body > label {
+    flex: 0 1 20%; }
+  div.body > input, div.body > textarea {
+    flex: 0 1 75%; }
+
+input[type="text"], input[type="file"], button, textarea, input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  border-radius: 5px;
+  padding: 5px;
+  font-size: .7em; }
+
+input[type="file"]::-webkit-file-upload-button {
+  font-size: 1em;
+  background-color: #454545;
+  color: white;
+  border: 2px solid white; }
+
+/*# sourceMappingURL=edit.css.map */
