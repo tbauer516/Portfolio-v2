@@ -1,13 +1,8 @@
-{% set class = "list-of-jobs" %}
+{% set class = section.type %}
 {% extends "partials/section.njk" %}
 
 {% block content %}
-{% for job in section.body %}
-	<div>
-		<h3>{{ job.company }}</h3>
-		<p>{{ job.title }}</p>
-		<p>{{ job.start }} - {{ job.end }}</p>
-		<p>{{ job.description }}</p>
-	</div>
+{% for object in section.body %}
+	{% include "partials/element/job.njk" %}
 {% endfor %}
 {% endblock %}

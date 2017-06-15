@@ -1,0 +1,12 @@
+<div class="project">
+	<h3>{{ object.title }}</h3>
+	<a href="{{ object.demo }}" target="_blank">
+		<div>
+			<img src="/static/img/projects/{{ object.title | replace(' ', '-') | lower }}.jpg" alt="{{ object.title }} screenshot">
+		</div>
+	</a>
+	<p>{{ object.description }}</p>
+	<hr>
+	<p class="date">- Completed: {{ object.completed }}</p>
+	<a class="source" target="_blank" href="{{ object.source }}">Source Code</a>
+</div>
