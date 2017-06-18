@@ -39,19 +39,20 @@ module.exports = (app) => {
 		let dataSubset;
 		let data = utils.readDataSync(root + 'data/index.json');
 
-		let sectionID;
-		for (let i = 0; i < data.section.length; i++) {
-			if (data.section[i].id == type) {
-				sectionID = i;
-				break;
-			}
+		let sectionID = utils.arrayIndexOf(data.section, type);
+		if (sectionID == undefined)
+			res.redirect('/');
+
+		dataSubset = data.section[sectionID];
+
+		if (id) {
+			if (id === 'body')
+				dataSubset = dataSubset.body;
+			else
+				dataSubset = dataSubset.body[id];
 		}
 
-		if (id && data.section[sectionID].body) {
-			dataSubset = data.section[sectionID].body[id];
-		} else if (data.section[sectionID].body) {
-			dataSubset = data.section[sectionID];
-		}
+		dataSubset = utils.convertFileToForm(dataSubset);
 
 		res.render('views/edit.njk', {
 			title: 'Portfolio Edit',
@@ -62,36 +63,43 @@ module.exports = (app) => {
 		});
 	});
 
-	app.post('/edit/:type/:id', (req, res) => {
+	app.post('/edit/:type/:id?', (req, res) => {
 		let data = utils.readDataSync(root + 'data/index.json');
 		const type = req.params.type;
-		const id = parseInt(req.params.id);
+		const id = req.params.id === 'body' ? 'body' : parseInt(req.params.id);
 
-		let sectionID;
-		for (let i = 0; i < data.section.length; i++) {
-			if (data.section[i].id == type) {
-				sectionID = i;
-				break;
-			}
-		}
+		let sectionID = utils.arrayIndexOf(data.section, type);
 
-		if (!sectionID) {
+		if (sectionID == undefined) {
 			res.status(400);
 			return res.json({ message: 'This id does not exist' });
 		}
 
-		let folder = type;
-		let filename = req.body.title.toLowerCase().split(' ').join('-') + '.jpg';
 		let url = req.body.demo;
 
 		let saveImg = Promise.resolve();
-		if (url)
+		if (url) {
+			let folder = type;
+			let filename = req.body.title.toLowerCase().split(' ').join('-') + '.jpg';
 			saveImg = imgSave.saveScreenshot(url, folder + '/' + filename);
+		}
 
 		let saveFields = Promise.resolve().then(() => {
-			for (let key in req.body) {
-				data.section[sectionID].body[id][key] = req.body[key];
+			let dataSubset = data.section[sectionID];
+
+			if (id != undefined) {
+				if (id === 'body')
+					dataSubset = dataSubset.body;
+				else
+					dataSubset = dataSubset.body[id];
 			}
+
+			let newData = utils.convertFormToFile(req.body);
+			for (let key in newData) {
+				dataSubset[key] = newData[key];
+			}
+
+
 			// fs.writeFileSync(root + '/data/index.json', JSON.stringify(data));
 			return JSON.stringify(data);
 		})

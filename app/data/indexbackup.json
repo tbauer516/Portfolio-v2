@@ -1,16 +1,31 @@
 {
 	"top": "TB",
 	"sidebar": [
-		{"id": "body-about-site", "text": "Intro"},
-		{"id": "body-about-me", "text": "About"},
-		{"id": "body-jobs", "text": "Work"},
-		{"id": "body-projects", "text": "Projects"},
-		{"id": "body-connect", "text": "Connect"}
+		{
+			"id": "about-site",
+			"text": "Intro"
+		},
+		{
+			"id": "about-me",
+			"text": "About"
+		},
+		{
+			"id": "jobs",
+			"text": "Work"
+		},
+		{
+			"id": "projects",
+			"text": "Projects"
+		},
+		{
+			"id": "connect",
+			"text": "Connect"
+		}
 	],
 	"title": "Tyler Bauer",
 	"section": [
 		{
-			"id": "body-about-site",
+			"id": "about-site",
 			"type": "title-text",
 			"title": "What is this place?",
 			"body": [
@@ -21,11 +36,12 @@
 			]
 		},
 		{
-			"id": "body-about-me",
+			"id": "about-me",
 			"type": "title-two-col-img-lists",
 			"title": "About Me",
 			"body": {
-				"img": {"src": "/static/img/profile/profile.jpg", "alt": "headshot of Tyler Bauer"},
+				"imgSrc": "/static/img/profile/profile.jpg",
+				"imgAlt": "headshot of Tyler Bauer",
 				"dob": "May 16th, 1995",
 				"school": "University of Washington",
 				"degree": "Bachelor's of Science in Informatics",
@@ -48,10 +64,10 @@
 			}
 		},
 		{
-			"id": "body-jobs",
+			"id": "jobs",
 			"type": "list-of-jobs",
 			"title": "Work Experience",
-			"jobs": [
+			"body": [
 				{
 					"company": "Automatic Products",
 					"title": "Web Developer",
@@ -76,13 +92,12 @@
 			]
 		},
 		{
-			"id": "body-projects",
+			"id": "projects",
 			"type": "list-of-projects",
 			"title": "Projects",
-			"projects": [
+			"body": [
 				{
 					"title": "Seattle Crime",
-					"img": "/static/img/projects/seattlecrime.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/INFO370-Website/",
 					"description": "This project was completed in a team of 4. We used R and Python to manipulate the data which we pulled from Seattle's own data repository. Once the data was in a usable manner, we used Tableau for the cool visualization found on the page. The R statistical tests and logistical regression were not included in this site, as they were for our classroom environment only.",
 					"completed": "December 4, 2016",
@@ -90,7 +105,6 @@
 				},
 				{
 					"title": "Click Accuracy",
-					"img": "/static/img/projects/clickaccuracy.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/ClickAccuracy/",
 					"description": "This was a project I created for my Research Methods course, as it can gauge the accuracy of using a pointing device. It was intended to be used by several different people on the same computer, as the test is dependent on resolution and screen size. It uses an HTML canvas element that records clicks and stores the data in a Firebase Array that can be later retrieved for analysis.",
 					"completed": "November 30, 2016",
@@ -98,7 +112,6 @@
 				},
 				{
 					"title": "Location Tagger",
-					"img": "/static/img/projects/locationtagger.jpg",
 					"demo": "http://imgur.com/a/QYk7M",
 					"description": "Location Tagger lets a user place a location based message on the map, similar to the chalk messages written on the ground all around the UW. Another user can then find and view these messages in either a list view, or through augmented reality.",
 					"completed": "May 26, 2016",
@@ -106,7 +119,6 @@
 				},
 				{
 					"title": "ToDo List",
-					"img": "/static/img/projects/todolist.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/Todo%20List/#/",
 					"description": "This was a simple social sharing todo list that I created as part of a team of four for my Web Development class. It features Firebase as well as Angular to receive instant updates when changes are made. It also features a full user authentication system when logging in or signing up.",
 					"completed": "December 9, 2015",
@@ -114,7 +126,6 @@
 				},
 				{
 					"title": "Dawg Coffee",
-					"img": "/static/img/projects/dawgcoffee.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/dawg-coffee/#/",
 					"description": "This is a fake e-commerce site that sells coffee. It uses angular and utilizes the browsers localstorage for the shopping cart.",
 					"completed": "November 19, 2015",
@@ -122,7 +133,6 @@
 				},
 				{
 					"title": "Sound Cloud Challenge",
-					"img": "/static/img/projects/soundcloud.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/soundcloud/",
 					"description": "This was an website I made as part of a class assignment that features the Soundcloud API as the main feature. Specifically, it allows the user to search for tracks and add them to a playlist that appears on the right.",
 					"completed": "November 3, 2015",
@@ -130,7 +140,6 @@
 				},
 				{
 					"title": "Product Review",
-					"img": "/static/img/projects/review.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/reviewer/",
 					"description": "This site uses Parse (before it shut down), jQuery and Raty in order to create a single product page that users can type reviews on. Uses a full 5 star system from Raty as well as Parse as the back-end.",
 					"completed": "October 27, 2015",
@@ -138,7 +147,6 @@
 				},
 				{
 					"title": "Police Shooting Map",
-					"img": "/static/img/projects/policeshooting.jpg",
 					"demo": "http://tbauer516.github.io/WorkExamples/shooting-map/",
 					"description": "This is an interactive map of the US that uses data that was collected about police shootings and the resulting victims. This particular page uses Leaflet for the map interactivity and MapBox as the map layout.",
 					"completed": "October 19, 2015",
@@ -147,7 +155,7 @@
 			]
 		},
 		{
-			"id": "body-connect",
+			"id": "connect",
 			"type": "closing",
 			"title": "Connect With Me",
 			"linkedin": {

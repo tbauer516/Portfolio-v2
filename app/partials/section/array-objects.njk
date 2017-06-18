@@ -1,0 +1,9 @@
+{% set class = section.type %}
+{% extends "partials/section/section.njk" %}
+
+{% block content %}
+{% for object in section.body %}
+	{% set index = loop.index0 %}
+	{% include "partials/element/" + itemType + ".njk" %}
+{% endfor %}
+{% endblock %}

@@ -1,5 +1,12 @@
 <div class="project">
-	<h3>{{ object.title }}</h3>
+	<h3>
+		{% if auth %}
+			<a href="/edit/{{ section.id }}/{{ index }}" class="button cancel">
+				<button type="button">Edit</button>
+			</a>
+		{% endif %}
+		{{ object.title }}
+	</h3>
 	<a href="{{ object.demo }}" target="_blank">
 		<div>
 			<img src="/static/img/projects/{{ object.title | replace(' ', '-') | lower }}.jpg" alt="{{ object.title }} screenshot">

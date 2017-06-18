@@ -63,9 +63,22 @@ body {
 	}
 }
 
+%defaultInput {
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: .7em;
+}
+
 button {
 	background-color: $lighter;
 	cursor: pointer;
+	@extend %defaultInput;
+	border: 2px solid $text-color;
+
+	&[type="submit"] {
+		border: none;
+	}
 }
 
 h1, h2, h3 {
@@ -97,6 +110,17 @@ ul {
 	list-style: none;
 	margin: 0;
 	padding: 0;
+}
+
+input[type="text"], input[type="file"], button, textarea, input[type="file"]::-webkit-file-upload-button {
+	@extend %defaultInput;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+	font-size: 1em;
+	background-color: $gray;
+	color: white;
+	border: 2px solid white;
 }
 
 .tooltip {

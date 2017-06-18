@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-{% include "partials/edit-head.njk" %}
+{% include "partials/head/edit-head.njk" %}
 
 <body>
 	
@@ -10,18 +10,16 @@
 	<form action="/edit/{{ type }}/{{ id }}" method="POST">
 	
 		<div class="body">
-			{% for key, val in data %}
-				{% if getType(val) === 'value' %}
-
-					<label for="{{ key }}">{{ key }}</label>
-					{% if key == 'description' %}
-					<textarea name="{{ key }}" rows="5">{{ val }}</textarea>
-					{% else %}
-					<input type="text" name="{{ key }}" value="{{ val }}">
-					{% endif %}
-
-				{% endif %}
-			{% endfor %}
+			{% if getType(data) === 'object' %}
+				{% for key, val in data %}
+					{% include "partials/element/form-input.njk" %}
+				{% endfor %}
+			{% elseif getType(data) === 'array' %}
+				{% for val in data %}
+					{% set key = loop.index0 %}
+					{% include "partials/element/form-input.njk" %}
+				{% endfor %}
+			{% endif %}
 		</div>
 		
 		<button type="submit">Submit</button>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 
-{% include "partials/head.njk" %}
+{% include "partials/head/head.njk" %}
 
 <body>
 	<input type="checkbox" id="nav-trigger">
@@ -28,7 +28,7 @@
 		</div>
 
 		{% for section in data.section %}
-			{% include "partials/" + section.id + ".njk" %}
+			{% include "partials/section/" + section.id + ".njk" %}
 		{% endfor %}
 	</div>
 

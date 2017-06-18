@@ -1,7 +1,9 @@
 const fs = require('fs');
 const modifiedPath = './app/data/modified.json';
 
-module.exports.getType = (param) => {
+const arraySeperator = '+';
+
+let getType = module.exports.getType = (param) => {
 	if (Array.isArray(param)) return 'array';
 	else if (typeof param === 'object') return 'object';
 	else return 'value';
@@ -60,4 +62,35 @@ module.exports.updateLastModified = () => {
 			return;
 		});
 	});
+};
+
+module.exports.arrayIndexOf = (array, id) => {
+	let sectionID;
+	for (let i = 0; i < array.length; i++) {
+		if (array[i].id == id) {
+			sectionID = i;
+			break;
+		}
+	}
+	return sectionID;
+};
+
+module.exports.convertFileToForm = (data) => {
+	for (let key in data) {
+		if (getType(data[key]) === 'array' && data[key].length > 0 && getType(data[key][0]) === 'value') {
+			data[arraySeperator + 'array-' + key] = data[key].join(arraySeperator);
+		}
+	}
+	return data;
+};
+
+module.exports.convertFormToFile = (data) => {
+	for (let key in data) {
+		if (key.substr(0, 7) === arraySeperator + 'array-') {
+			let newKey = key.substr(7);
+			data[newKey] = data[key].split(arraySeperator);
+			delete data[key];
+		}
+	}
+	return data;
 };

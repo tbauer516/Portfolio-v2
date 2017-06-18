@@ -1,8 +1,8 @@
 {% set class = "title-text" %}
-{% extends "partials/section.njk" %}
+{% extends "partials/section/section.njk" %}
 
 {% block content %}
-{% for text in section.body %}
+{% for text in section.body.text %}
 	<p>
 		{{ text }}
 	</p>
