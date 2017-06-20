@@ -36,5 +36,5 @@ jspm_packages
 # Optional REPL history
 .node_repl_history
 
-# Other Repo that is used for the front end
-public
+# Secret files
+config/

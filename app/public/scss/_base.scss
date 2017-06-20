@@ -1,0 +1,136 @@
+$sm: 544px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+
+$base: #22531F;
+$dark: #252525;
+$gray: #454545;
+$lighter: #0B6C06;
+$bright: #08A700;
+
+$text-color: white;
+$text-color-focus: $base;
+
+$top-height: 50px;
+$border-width: 4px;
+
+$sidebar-width: 10%;
+
+$margin-header: 30px;
+$margin-block: 20px;
+$margin-content: 10px;
+
+$nav-off-screen-dist: 500px;
+
+// ====================================================
+// CSS for default elements ===========================
+// ====================================================
+
+a {
+
+	&:hover, &:focus {
+		color: $text-color-focus;
+		background-color: $text-color;
+	}
+
+	&, &.button, &.button:hover {
+		text-decoration: none;
+		background-color: transparent;
+		cursor: pointer;
+
+		&, button {
+			color: $text-color;
+		}
+
+		button {
+			background-color: $gray;
+		}
+	}
+}
+
+body {
+	background-color: $dark;
+	color: white;
+	font-family: 'Josefin Sans', sans-serif;
+	font-size: 1.7em;
+	margin: 0;
+	display: flex;
+	flex-wrap: wrap;
+
+	@media screen and (min-width: $lg) {
+		flex-wrap: nowrap;
+	}
+}
+
+%defaultInput {
+	border: none;
+	border-radius: 5px;
+	padding: 5px;
+	font-size: .7em;
+}
+
+button {
+	background-color: $lighter;
+	cursor: pointer;
+	@extend %defaultInput;
+	border: 2px solid $text-color;
+
+	&[type="submit"] {
+		border: none;
+	}
+}
+
+h1, h2, h3 {
+	margin: 0;
+}
+
+hr {
+	width: 90%;
+}
+
+html {
+	font-size: 16px;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}
+
+p {
+	margin: 0;
+}
+
+p, li {
+	font-size: .85em;
+}
+
+ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+input[type="text"], input[type="file"], button, textarea, input[type="file"]::-webkit-file-upload-button {
+	@extend %defaultInput;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+	font-size: 1em;
+	background-color: $gray;
+	color: white;
+	border: 2px solid white;
+}
+
+.tooltip {
+	position: absolute;
+	font-size: .6em;
+	margin: 20px 0 0 10px;
+	opacity: 0;
+	transition: opacity 2s;
+}
+
+.tooltip-active {
+	opacity: 1;
+}

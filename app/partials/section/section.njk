@@ -1,0 +1,22 @@
+<div class="section {{ class }}">
+	<span id="{{ section.id }}" tabindex="-1"></span>
+	<h2>
+		{% if auth %}
+			<a href="/edit/{{ section.id }}" class="button cancel">
+				<button type="button">Edit</button>
+			</a>
+		{% endif %}
+		{{ section.title }}
+		{% if auth %}
+			<a href="/edit/{{ section.id }}/body" class="button cancel">
+				<button type="button">Edit Body</button>
+			</a>
+		{% endif %}
+	</h2>
+	<div class="body">
+
+		{% block content %}
+		{% endblock %}
+
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+{% include "partials/head/edit-head.njk" %}
+
+<body>
+	
+	<h1>{{ type }}: {{ id }}</h1>
+
+	<form action="/edit/{{ type }}/{{ id }}" method="POST">
+	
+		<div class="body">
+			{% if getType(data) === 'object' %}
+				{% for key, val in data %}
+					{% include "partials/element/form-input.njk" %}
+				{% endfor %}
+			{% elseif getType(data) === 'array' %}
+				{% for val in data %}
+					{% set key = loop.index0 %}
+					{% include "partials/element/form-input.njk" %}
+				{% endfor %}
+			{% endif %}
+		</div>
+		
+		<button type="submit">Submit</button>
+		<a href="/" class="button cancel"><button type="button">Cancel</button></a>
+	</form>
+
+</body>
+
+</html>

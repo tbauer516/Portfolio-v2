@@ -1,0 +1,10 @@
+{% if getType(val) === 'value' %}
+
+	<label for="{{ key }}">{{ key }}</label>
+	{% if key == 'description' or (val | length) > 70 %}
+	<textarea name="{{ key }}" rows="10">{{ val }}</textarea>
+	{% else %}
+	<input type="text" name="{{ key }}" value="{{ val }}">
+	{% endif %}
+
+{% endif %}

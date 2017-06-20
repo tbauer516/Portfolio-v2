@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+{% include "partials/head/head.njk" %}
+
+<body>
+	<input type="checkbox" id="nav-trigger">
+	<div id="top">
+		{% if auth %}
+			<a href="/logout" class="button cancel">
+				<button type="button">Logout</button>
+			</a>
+		{% endif %}
+		<a href="#" class="nav">{{ data.top }}</a>
+		<label for="nav-trigger">&#9776;</label>
+	</div>
+
+	<div id="sidebar">
+		<nav>
+			<ul>
+				{% for link in data.sidebar %}
+				<li><a href="#{{ link.id }}">{{ link.text }}</a></li>
+				{% endfor %}
+			</ul>
+		</nav>
+	</div>
+
+	<div id="main">
+		<div class="section">
+			<span id="title" tabindex="-1"></span>
+			<div id="bg-img"></div>
+			<h1>{{ data.title }}</h1>
+		</div>
+
+		{% for section in data.section %}
+			{% include "partials/section/" + section.id + ".njk" %}
+		{% endfor %}
+	</div>
+
+</body>
+
+</html>
