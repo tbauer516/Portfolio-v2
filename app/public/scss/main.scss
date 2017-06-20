@@ -228,8 +228,13 @@
 		display: inline-block;
 	}
 
-	a {
+	& > a {
 		margin-right: auto;
+	}
+
+	& > a.button {
+		margin-right: 0;
+		font-size: .7em;
 	}
 
 	label[for="nav-trigger"] {

@@ -217,8 +217,11 @@ input[type="file"]::-webkit-file-upload-button {
     align-self: center;
     padding-left: 10px;
     display: inline-block; }
-  #top a {
+  #top > a {
     margin-right: auto; }
+  #top > a.button {
+    margin-right: 0;
+    font-size: .7em; }
   #top label[for="nav-trigger"] {
     display: inline-block;
     margin-right: 10px;

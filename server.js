@@ -1,4 +1,6 @@
 const express = require('express');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
 const fs = require('fs');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
@@ -16,6 +18,14 @@ app.use(compression());
 app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({
 	extended: true
+}));
+app.use(cookieParser());
+app.use(session({
+	secret: 'password',
+	name: 'portfolio',
+	resave: true,
+	saveUninitialized: true,
+	maxAge: 600000
 }));
 
 // nunjucks.configure(['app/partials', 'app/views'], {

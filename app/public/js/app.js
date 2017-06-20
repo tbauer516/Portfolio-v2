@@ -24,7 +24,7 @@ $(document).ready(() => {
 
 let lastId;
 const topMenuHeight = 54;
-const menuItems = $('#sidebar a, #top a');
+const menuItems = $('#sidebar a, #top a.nav');
 const scrollItems = menuItems.map((_, item) => {
 	let hash = $(item)[0].hash;
 	let elem = '#title';

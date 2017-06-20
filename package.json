@@ -6,10 +6,13 @@
 	"dependencies": {
 		"body-parser": "^1.17.2",
 		"compression": "^1.6.2",
+		"cookie-parser": "^1.4.3",
 		"express": "^4.15.2",
+		"express-session": "^1.15.3",
 		"http-master": "^1.2.6",
 		"nunjucks": "^3.0.0",
-		"slimerjs": "^0.10.3"
+		"passport": "^0.3.2",
+		"passport-google-oauth": "^1.0.0"
 	},
 	"devDependencies": {
 		"nodemon": "latest"
@@ -17,7 +20,7 @@
 	"main": "server.js",
 	"scripts": {
 		"start": "node start.js",
-		"dev": "nodemon -e js,html,njk,css server.js"
+		"dev": "set ENVIRONMENT=development&& nodemon -e js,html,njk,css server.js"
 	},
 	"author": "Tyler Bauer",
 	"license": "ISC"
