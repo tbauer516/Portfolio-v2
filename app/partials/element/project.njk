@@ -15,5 +15,7 @@
 	<p>{{ object.description }}</p>
 	<hr>
 	<p class="date">- Completed: {{ object.completed }}</p>
-	<a class="source" target="_blank" href="{{ object.source }}">Source Code</a>
+	{% if object.source !== '' %}
+		<a class="source" target="_blank" href="{{ object.source }}">Source Code</a>
+	{% endif %}
 </div>

@@ -1,5 +1,6 @@
 const root = './app/';
 const utils = require('./utils.js');
+const imgSave = require('./phantomWrapper.js');
 
 let lastAccessed = new Date().getTime();
 let lastModified = utils.getLastModifiedSync();

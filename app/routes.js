@@ -30,7 +30,7 @@ module.exports = (app) => {
 	app.post('/edit/:type/:id?', passport.isLoggedIn, (req, res) => {
 		const type = req.params.type;
 		const id = req.params.id === 'body' ? 'body' : parseInt(req.params.id);
-
+		console.log('here');
 		cms.postEditData(type, id, req.body)
 		.then(() => {
 			res.redirect('/');
