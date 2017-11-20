@@ -10,7 +10,7 @@ const app = express();
 // Server Hosting Code Below
 
 const oneDay = 0; //86400000;
-const port = process.env.PORT || 8202;
+const port = process.env.PORT || 8108;
 
 app.set('view engine', 'njk');
 
@@ -40,5 +40,5 @@ app.use('/static', express.static(__dirname + '/app/public', { maxAge: oneDay })
 require('./app/routes.js')(app);
 
 app.listen(port, function () {
-	console.log(`Application worker ${process.pid} started...`);
+	console.log(`Application running on port ${port}`);
 });

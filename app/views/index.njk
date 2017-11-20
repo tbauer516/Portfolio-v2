@@ -11,15 +11,15 @@
 				<button type="button">Logout</button>
 			</a>
 		{% endif %}
-		<a href="#" class="nav">{{ data.top }}</a>
+		<a href="#" class="nav">{{ data.top.nav }}</a>
 		<label for="nav-trigger">&#9776;</label>
 	</div>
 
 	<div id="sidebar">
 		<nav>
 			<ul>
-				{% for link in data.sidebar %}
-				<li><a href="#{{ link.id }}">{{ link.text }}</a></li>
+				{% for section in data.section %}
+				<li><a href="#{{ section.template + loop.index0 }}">{{ section.nav }}</a></li>
 				{% endfor %}
 			</ul>
 		</nav>
@@ -29,11 +29,12 @@
 		<div class="section">
 			<span id="title" tabindex="-1"></span>
 			<div id="bg-img"></div>
-			<h1>{{ data.title }}</h1>
+			<h1>{{ data.top.title }}</h1>
 		</div>
 
 		{% for section in data.section %}
-			{% include "partials/section/" + section.id + ".njk" %}
+			{% set sectionIndex = loop.index0 %}
+			{% include "partials/section/" + section.template + ".njk" %}
 		{% endfor %}
 	</div>
 

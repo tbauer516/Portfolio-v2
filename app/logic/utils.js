@@ -2,6 +2,20 @@ const fs = require('fs');
 const modifiedPath = './app/data/modified.json';
 
 const arraySeperator = '+';
+const months = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+]
 
 let getType = module.exports.getType = (param) => {
 	if (Array.isArray(param)) return 'array';
@@ -64,33 +78,92 @@ module.exports.updateLastModified = () => {
 	});
 };
 
-module.exports.arrayIndexOf = (array, id) => {
-	let sectionID;
+/**
+ * @param {array} array
+ * @param {string} key
+ * @param {string} val
+ * @return {number}
+ */
+module.exports.arrayIndexOf = (array, key, val) => {
+	let sectionIndex;
 	for (let i = 0; i < array.length; i++) {
-		if (array[i].id == id) {
-			sectionID = i;
+		if (array[i][key] == val) {
+			sectionIndex = i;
 			break;
 		}
 	}
-	return sectionID;
+	return sectionIndex;
 };
 
-module.exports.convertFileToForm = (data) => {
-	for (let key in data) {
-		if (getType(data[key]) === 'array' && data[key].length > 0 && getType(data[key][0]) === 'value') {
-			data[arraySeperator + 'array-' + key] = data[key].join(arraySeperator);
+const formatMillisToIso = (millis, type = 'full') => {
+	const date = new Date(millis);
+	let iso = date.toISOString().split('T')[0];
+	if (type === 'full')
+		return iso;
+	else if (type === 'month') {
+		return iso.split('-').reduce((result, val, i) => {
+			if (i < 2) result.push(val);
+			return result;
+		}, [])
+		.join('-');
+	}
+};
+
+const formatIsoToMillis = (iso) => {
+	if (iso === '')
+		return 'current';
+	if (iso.length < 8) {
+		iso += '-01';
+	}
+	const date = new Date(iso);
+	return date.getTime();
+};
+
+// string, url, date, month-year, array-of-strings, paragraph
+module.exports.convertFileToForm = (data, template) => {
+	data = JSON.parse(JSON.stringify(data));
+	for (let key in template) {
+		switch(template[key]) {
+			case 'date':
+				data[key] = formatMillisToIso(data[key], 'full');
+				break;
+			case 'month-year':
+				if (data[key] !== 'current')
+					data[key] = formatMillisToIso(data[key], 'month');
+				break;
+			case 'array-of-strings':
+				data[key] = data[key].join('\n\n');
+				break;
 		}
 	}
 	return data;
 };
 
-module.exports.convertFormToFile = (data) => {
-	for (let key in data) {
-		if (key.substr(0, 7) === arraySeperator + 'array-') {
-			let newKey = key.substr(7);
-			data[newKey] = data[key].split(arraySeperator);
-			delete data[key];
+module.exports.convertFormToFile = (data, template) => {
+	data = JSON.parse(JSON.stringify(data));
+	for (let key in template) {
+		switch(template[key]) {
+			case 'date':
+				data[key] = formatIsoToMillis(data[key]);
+				break;
+			case 'month-year':
+				data[key] = formatIsoToMillis(data[key]);
+				break;
+			case 'array-of-strings':
+				data[key] = data[key].split('\r\n\r\n');
+				break;
 		}
 	}
 	return data;
+};
+
+module.exports.formatMillisToMonthYear = (millis) => {
+	const date = new Date(millis);
+	if (millis === 'current') return 'Current';
+	return months[date.getMonth()] + ' ' + date.getFullYear();
+};
+
+module.exports.formatMillisToDate = (millis) => {
+	const date = new Date(millis);
+	return months[date.getMonth()] + ' ' + date.getDate() + ', ' + date.getFullYear();
 };

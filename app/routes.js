@@ -14,27 +14,32 @@ module.exports = (app) => {
 		cms.getIndexData(req.user)
 		.then(metaData => {
 			res.render('views/index.njk', metaData);
-		});
+		})
+		.catch(err => { console.log(err); });
 	});
 
-	app.get('/edit/:type/:id?', passport.isLoggedIn, (req, res) => {
-		const type = req.params.type;
+	app.get('/edit/:section/:index/:id?', passport.isLoggedIn, (req, res) => {
+		const sectionName = req.params.section;
+		const sectionIndex = req.params.index;
 		const id = req.params.id;
 
-		cms.getEditData(type, id)
+		cms.getEditData(sectionName, sectionIndex, id)
 		.then(metaData => {
 			res.render('views/edit.njk', metaData);
-		});
+		})
+		.catch(err => { console.log(err); });
 	});
 
-	app.post('/edit/:type/:id?', passport.isLoggedIn, (req, res) => {
-		const type = req.params.type;
-		const id = req.params.id === 'body' ? 'body' : parseInt(req.params.id);
-		console.log('here');
-		cms.postEditData(type, id, req.body)
+	app.post('/edit/:section/:index/:id?', passport.isLoggedIn, (req, res) => {
+		const sectionName = req.params.section;
+		const sectionIndex = req.params.index;
+		const id = req.params.id;
+		
+		cms.postEditData(sectionName, sectionIndex, id, req.body)
 		.then(() => {
 			res.redirect('/');
-		});
+		})
+		.catch(err => { console.log(err); });
 	});
 
 	app.get('/login', (req, res) => {

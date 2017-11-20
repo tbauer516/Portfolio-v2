@@ -1,10 +1,9 @@
-{% set class = "closing" %}
 {% extends "partials/section/section.njk" %}
 
 {% block content %}
 <h3>
-	<a href="{{ section.linkedin.url }}" target="_blank"><i class="icon ion-social-linkedin-outline"></i><span> {{ section.linkedin.text }}</span></a>
-	<a id="my-email" href="" title="My email is copied to your clipboard!"><i class="icon ion-email"></i><span> {{ section.email.text }}</span></a>
+	<a href="{{ section['linkedin-url'] }}" target="_blank"><i class="icon ion-social-linkedin-outline"></i><span> {{ section['linkedin-text'] }}</span></a>
+	<a id="my-email" href="" title="My email is copied to your clipboard!"><i class="icon ion-email"></i><span> {{ section['email-text'] }}</span></a>
 </h3>
 <span class="tooltip">Email Copied to Clipboard!</span>
 <p>

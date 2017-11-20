@@ -5,21 +5,14 @@
 
 <body>
 	
-	<h1>{{ type }}: {{ id }}</h1>
+	<h1>{{ index }}: {{ templateName }} {% if id %}: {% endif %} {{ id }}</h1>
 
-	<form action="/edit/{{ type }}/{{ id }}" method="POST">
+	<form action="/edit/{{ sectionName }}/{{ index }}/{{ id }}" method="POST">
 	
 		<div class="body">
-			{% if getType(data) === 'object' %}
-				{% for key, val in data %}
-					{% include "partials/element/form-input.njk" %}
-				{% endfor %}
-			{% elseif getType(data) === 'array' %}
-				{% for val in data %}
-					{% set key = loop.index0 %}
-					{% include "partials/element/form-input.njk" %}
-				{% endfor %}
-			{% endif %}
+			{% for key, val in template %}
+				{% include "partials/element/form-input.njk" %}
+			{% endfor %}
 		</div>
 		
 		<button type="submit">Submit</button>

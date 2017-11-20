@@ -1,13 +1,13 @@
 <div>
 	<h3>
 		{% if auth %}
-			<a href="/edit/{{ section.id }}/{{ index }}" class="button cancel">
+			<a href="/edit/section/{{ sectionIndex }}/{{ index }}" class="button cancel">
 				<button type="button">Edit</button>
 			</a>
 		{% endif %}
 		{{ object.company }}
 	</h3>
 	<p>{{ object.title }}</p>
-	<p>{{ object.start }} - {{ object.end }}</p>
+	<p>{{ dateMonthYear(object.start) }} - {{ dateMonthYear(object.end) }}</p>
 	<p>{{ object.description }}</p>
 </div>

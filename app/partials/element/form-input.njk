@@ -1,10 +1,17 @@
-{% if getType(val) === 'value' %}
-
+{% if key in template %}
 	<label for="{{ key }}">{{ key }}</label>
-	{% if key == 'description' or (val | length) > 70 %}
-	<textarea name="{{ key }}" rows="10">{{ val }}</textarea>
-	{% else %}
-	<input type="text" name="{{ key }}" value="{{ val }}">
-	{% endif %}
+{% endif %}
 
+{% if template[key] == 'paragraph' %}
+	<textarea name="{{ key }}" rows="10">{{ data[key] }}</textarea>
+{% elseif template[key] == 'array-of-strings' %}
+	<textarea name="{{ key }}" rows="10">{{ data[key] }}</textarea>
+{% elseif template[key] == 'date' %}
+	<input type="date" name="{{ key }}" value="{{ data[key] }}">
+{% elseif template[key] == 'month-year' %}
+	<input type="month" name="{{ key }}" value="{{ data[key] }}">
+{% elseif template[key] == 'url' %}
+	<input type="url" name="{{ key }}" value="{{ data[key] }}">
+{% elseif template[key] == 'string' %}
+	<input type="text" name="{{ key }}" value="{{ data[key] }}">
 {% endif %}

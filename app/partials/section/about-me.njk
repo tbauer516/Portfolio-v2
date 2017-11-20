@@ -1,8 +1,7 @@
-{% set class = "title-two-col-img-lists" %}
 {% extends "partials/section/section.njk" %}
 
 {% block content %}
-<div><img src="{{ section.body.imgSrc }}" alt="{{ section.body.imgAlt }}"></div>
+<div><img src="{{ section['img-src'] }}" alt="{{ section['img-alt'] }}"></div>
 <div>
 	<div>
 		<ul>
@@ -13,16 +12,16 @@
 	</div>
 	<div>
 		<ul>
-			<li>{{ section.body.dob }}</li>
-			<li>{{ section.body.school }}</li>
-			<li>{{ section.body.degree }}</li>
+			<li>{{ dateFull(section.dob) }}</li>
+			<li>{{ section.school }}</li>
+			<li>{{ section.degree }}</li>
 		</ul>
 	</div>
 	<hr>
 	<div>
 		<p>Skills:</p>
 		<ul>
-			{% for skill in section.body.skills %}
+			{% for skill in section.skills %}
 			<li>{{ skill }}</li>
 			{% endfor %}
 		</ul>
@@ -30,7 +29,7 @@
 	<div>
 		<p>Languages:</p>
 		<ul>
-			{% for language in section.body.languages %}
+			{% for language in section.languages %}
 			<li>{{ language }}</li>
 			{% endfor %}
 		</ul>

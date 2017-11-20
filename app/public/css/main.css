@@ -101,107 +101,107 @@ input[type="file"]::-webkit-file-upload-button {
     text-align: center;
     margin-bottom: 30px; }
 
-.title-text {
+.title-text, .about-site {
   background-color: #252525; }
-  .title-text .body p {
+  .title-text .body p, .about-site .body p {
     margin-bottom: 20px; }
 
-.title-two-col-img-lists {
+.title-two-col-img-lists, .about-me {
   background-color: #454545; }
-  .title-two-col-img-lists .body {
+  .title-two-col-img-lists .body, .about-me .body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; }
-    .title-two-col-img-lists .body > div {
+    .title-two-col-img-lists .body > div, .about-me .body > div {
       align-items: flex-start;
       flex: 0 1 100%; }
       @media screen and (min-width: 992px) {
-        .title-two-col-img-lists .body > div {
+        .title-two-col-img-lists .body > div, .about-me .body > div {
           flex: 0 1 50%; } }
-    .title-two-col-img-lists .body > div {
+    .title-two-col-img-lists .body > div, .about-me .body > div {
       display: flex; }
-    .title-two-col-img-lists .body > div:nth-of-type(1) {
+    .title-two-col-img-lists .body > div:nth-of-type(1), .about-me .body > div:nth-of-type(1) {
       align-content: center;
       margin-bottom: 20px; }
       @media screen and (min-width: 992px) {
-        .title-two-col-img-lists .body > div:nth-of-type(1) {
+        .title-two-col-img-lists .body > div:nth-of-type(1), .about-me .body > div:nth-of-type(1) {
           margin: 0; } }
-    .title-two-col-img-lists .body > div:nth-of-type(2) {
+    .title-two-col-img-lists .body > div:nth-of-type(2), .about-me .body > div:nth-of-type(2) {
       flex-wrap: wrap;
       justify-content: space-around; }
-      .title-two-col-img-lists .body > div:nth-of-type(2) div {
+      .title-two-col-img-lists .body > div:nth-of-type(2) div, .about-me .body > div:nth-of-type(2) div {
         flex: 0 1 40%; }
-      .title-two-col-img-lists .body > div:nth-of-type(2) div:nth-of-type(odd) {
+      .title-two-col-img-lists .body > div:nth-of-type(2) div:nth-of-type(odd), .about-me .body > div:nth-of-type(2) div:nth-of-type(odd) {
         text-align: right; }
-    .title-two-col-img-lists .body img {
+    .title-two-col-img-lists .body img, .about-me .body img {
       width: 60%;
       margin: auto; }
 
-.list-of-jobs {
+.list-of-jobs, .jobs {
   background-color: #252525; }
-  .list-of-jobs .body > div {
+  .list-of-jobs .body > div, .jobs .body > div {
     border: 4px solid #454545;
     margin-bottom: 20px;
     padding: 10px; }
-    .list-of-jobs .body > div h3 {
+    .list-of-jobs .body > div h3, .jobs .body > div h3 {
       margin-bottom: 10px; }
-    .list-of-jobs .body > div p:nth-of-type(1) {
+    .list-of-jobs .body > div p:nth-of-type(1), .jobs .body > div p:nth-of-type(1) {
       font-weight: bold;
       font-size: .9em; }
-    .list-of-jobs .body > div p:nth-of-type(2) {
+    .list-of-jobs .body > div p:nth-of-type(2), .jobs .body > div p:nth-of-type(2) {
       font-size: .65em; }
-    .list-of-jobs .body > div p {
+    .list-of-jobs .body > div p, .jobs .body > div p {
       margin-bottom: 10px; }
 
-.list-of-projects {
+.list-of-projects, .projects {
   background-color: #22531F; }
-  .list-of-projects .body {
+  .list-of-projects .body, .projects .body {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around; }
-    .list-of-projects .body > div {
+    .list-of-projects .body > div, .projects .body > div {
       align-items: flex-start;
       flex: 0 1 100%; }
       @media screen and (min-width: 992px) {
-        .list-of-projects .body > div {
+        .list-of-projects .body > div, .projects .body > div {
           flex: 0 1 50%; } }
-    .list-of-projects .body > div {
+    .list-of-projects .body > div, .projects .body > div {
       border: 4px solid #0B6C06;
       margin-bottom: 20px;
       padding: 10px;
       box-sizing: border-box; }
       @media screen and (min-width: 992px) {
-        .list-of-projects .body > div {
+        .list-of-projects .body > div, .projects .body > div {
           max-width: calc((100% / 2) - 10px); } }
-      .list-of-projects .body > div h3 {
+      .list-of-projects .body > div h3, .projects .body > div h3 {
         margin-bottom: 10px;
         text-align: center; }
-      .list-of-projects .body > div a > div {
+      .list-of-projects .body > div a > div, .projects .body > div a > div {
         width: 100%; }
-      .list-of-projects .body > div p:nth-of-type(2) {
+      .list-of-projects .body > div p:nth-of-type(2), .projects .body > div p:nth-of-type(2) {
         font-size: .65em; }
-      .list-of-projects .body > div p {
+      .list-of-projects .body > div p, .projects .body > div p {
         margin-bottom: 10px; }
     @media screen and (min-width: 992px) {
-      .list-of-projects .body > div:nth-of-type(odd) {
+      .list-of-projects .body > div:nth-of-type(odd), .projects .body > div:nth-of-type(odd) {
         margin-right: 10px; }
-      .list-of-projects .body > div:nth-of-type(even) {
+      .list-of-projects .body > div:nth-of-type(even), .projects .body > div:nth-of-type(even) {
         margin-left: 10px; } }
 
-.closing {
+.closing, .connect {
   background-color: #252525; }
-  .closing .body {
+  .closing .body, .connect .body {
     text-align: center; }
-    .closing .body > h3 {
+    .closing .body > h3, .connect .body > h3 {
       margin-bottom: 20px;
       border: 4px solid #454545;
       display: inline-block;
       padding: 5px 10px 5px 10px; }
-      .closing .body > h3 a:nth-of-type(odd) {
+      .closing .body > h3 a:nth-of-type(odd), .connect .body > h3 a:nth-of-type(odd) {
         margin: 0 15px 0 0; }
-      .closing .body > h3 a:nth-of-type(even) {
+      .closing .body > h3 a:nth-of-type(even), .connect .body > h3 a:nth-of-type(even) {
         margin: 0 0 0 15px; }
-    .closing .body p {
+    .closing .body p, .connect .body p {
       text-align: initial; }
 
 #top {

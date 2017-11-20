@@ -96,4 +96,13 @@ div.body {
   div.body > input, div.body > textarea {
     flex: 0 1 75%; }
 
+div.body.full {
+  display: block;
+  max-width: none;
+  width: 100%; }
+  div.body.full textarea {
+    height: 80vh;
+    width: 100%;
+    white-space: pre; }
+
 /*# sourceMappingURL=edit.css.map */

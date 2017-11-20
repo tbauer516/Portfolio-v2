@@ -65,7 +65,7 @@
 	}
 }
 
-.title-text {
+.title-text, .about-site {
 	background-color: $dark;
 
 	.body {
@@ -75,7 +75,7 @@
 	}
 }
 
-.title-two-col-img-lists {
+.title-two-col-img-lists, .about-me {
 	background-color: $gray;
 
 	@include flex-col(2) {
@@ -112,7 +112,7 @@
 	}
 }
 
-.list-of-jobs {
+.list-of-jobs, .jobs {
 	background-color: $dark;
 
 	.body {
@@ -138,7 +138,7 @@
 	}
 }
 
-.list-of-projects {
+.list-of-projects, .projects {
 	background-color: $base;
 
 	@include flex-col(2) {
@@ -181,7 +181,7 @@
 	}
 }
 
-.closing {
+.closing, .connect {
 	background-color: $dark;
 
 	.body {

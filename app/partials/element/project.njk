@@ -1,7 +1,7 @@
 <div class="project">
 	<h3>
 		{% if auth %}
-			<a href="/edit/{{ section.id }}/{{ index }}" class="button cancel">
+			<a href="/edit/section/{{ sectionIndex }}/{{ index }}" class="button cancel">
 				<button type="button">Edit</button>
 			</a>
 		{% endif %}
@@ -14,7 +14,7 @@
 	</a>
 	<p>{{ object.description }}</p>
 	<hr>
-	<p class="date">- Completed: {{ object.completed }}</p>
+	<p class="date">- Completed: {{ dateFull(object.completed) }}</p>
 	{% if object.source !== '' %}
 		<a class="source" target="_blank" href="{{ object.source }}">Source Code</a>
 	{% endif %}

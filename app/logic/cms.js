@@ -6,8 +6,9 @@ let lastAccessed = new Date().getTime();
 let lastModified = utils.getLastModifiedSync();
 let fullData;
 
-let getData = () => {
-	return Promise.resolve().then(() => {
+const getData = () => {
+	return Promise.resolve()
+	.then(() => {
 		if (!fullData || lastModified > lastAccessed) {
 			console.log('New data updated');
 			return utils.readData(root + 'data/index.json')
@@ -20,84 +21,111 @@ let getData = () => {
 	});
 };
 
+const getTemplate = () => {
+	return Promise.resolve()
+	.then(() => {
+		return utils.readData(root + 'data/template.json')
+		.then(data => {
+			return data;
+		})
+		.catch(err => { console.log(err); });
+	});
+};
+
 module.exports.getIndexData = (user) => {
 	return getData()
 	.then(() => {
 		return {
 			title: 'Portfolio Home Page',
 			data: fullData,
-			auth: user != undefined
+			auth: user != undefined,
+			dateMonthYear: utils.formatMillisToMonthYear,
+			dateFull: utils.formatMillisToDate
 		};
 	})
 	.catch(err => { console.log(err); });
 };
 
-module.exports.getEditData = (type, id) => {
-	let dataSubset;
+const getTemplateChild = (template, sectionName, templateName, id) => {
+	let templateChild = template[sectionName][templateName];
+	if (templateChild.type === 'object')
+		return Object.assign(template[sectionName].all, templateChild.value);
+	else if (id !== undefined && templateChild.type === 'array-of-objects')
+		return templateChild.value;
+	return template[sectionName].all;
+};
 
+const getDataChild = (data, sectionName, sectionIndex, id) => {
+	let child = data;
+	child = child[sectionName];
+	child = child[sectionIndex];
+	if (id !== undefined && Array.isArray(child[child.template]))
+		child = child[child.template][id];
+
+	return child;
+};
+
+module.exports.getEditData = (sectionName, sectionIndex, id) => {
 	return getData()
-	.then(() => {
+	.then(getTemplate)
+	.then(template => {
 		let data = fullData;
-		let sectionID = utils.arrayIndexOf(data.section, type);
-		if (sectionID == undefined)
+		let templateName = data[sectionName][sectionIndex].template;
+
+		if (Array.isArray(data) && sectionIndex === undefined)
 			throw({ status: 400, message:'Section not found' });
 
-		dataSubset = data.section[sectionID];
+		let dataChild = getDataChild(data, sectionName, sectionIndex, id);
+		let templateChild = getTemplateChild(template, sectionName, templateName, id);
 
-		if (id) {
-			if (id === 'body')
-				dataSubset = dataSubset.body;
-			else
-				dataSubset = dataSubset.body[id];
-		}
-
-		dataSubset = utils.convertFileToForm(dataSubset);
+		dataChild = utils.convertFileToForm(dataChild, templateChild);
 
 		return {
 			title: 'Portfolio Edit',
-			data: dataSubset,
+			data: dataChild,
+			template: templateChild,
 			id: id,
-			type: type,
-			getType: utils.getType
+			index: sectionIndex,
+			templateName: templateName,
+			sectionName: sectionName
 		};
-	})
-	.catch(err => { console.log(err); });
+	});
 };
 
-module.exports.postEditData = (type, id, body) => {
+module.exports.postEditData = (sectionName, sectionIndex, id, body) => {
 	return getData()
-	.then(() => {
+	.then(getTemplate)
+	.then(template => {
 		let data = fullData;
-	
-		let sectionID = utils.arrayIndexOf(data.section, type);
+		let templateName = data[sectionName][sectionIndex].template;
 
-		if (sectionID == undefined) {
-			throw({ status: 400, message: 'This id does not exist' });
-		}
-
+		if (Array.isArray(data) && sectionIndex === undefined)
+			throw({ status: 400, message:'Section not found' });
+		
 		let url = body.demo;
 
 		let saveImg = Promise.resolve();
 		if (url) {
-			let folder = type;
+			let folder = templateName;
 			let filename = body.title.toLowerCase().split(' ').join('-') + '.jpg';
 			saveImg = imgSave.saveScreenshot(url, folder + '/' + filename);
 		}
 
 		let saveFields = Promise.resolve().then(() => {
-			let dataSubset = data.section[sectionID];
+			
+			let dataChild = getDataChild(data, sectionName, sectionIndex, id);
+			let templateChild = getTemplateChild(template, sectionName, templateName, id);
 
-			if (id === 'body')
-				dataSubset = dataSubset.body;
-			if (typeof id === 'number' && id >= 0)
-				dataSubset = dataSubset.body[id];
-
-			let newData = utils.convertFormToFile(body);
+			let newData = utils.convertFormToFile(body, templateChild);
 			for (let key in newData) {
-				dataSubset[key] = newData[key];
+				dataChild[key] = newData[key];
 			}
 
-			// fs.writeFileSync(root + '/data/index.json', JSON.stringify(data));
+			// if (id !== undefined)
+			// 	fullData[sectionName][sectionIndex][id] = dataChild;
+			// else
+			// 	fullData[sectionName][sectionIndex] = dataChild;
+
 			return JSON.stringify(data);
 		})
 		.then(dataString => { return utils.writeData(root + 'data/index.json', dataString); })

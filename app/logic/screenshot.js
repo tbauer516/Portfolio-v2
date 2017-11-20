@@ -20,7 +20,7 @@ if (system.args.length !== 3) {
 			phantom.exit(1);
 		} else {
 			window.setTimeout(function () {
-				console.log('Saved to :' + output);
+				console.log('Saved to: ' + output);
 				page.render(output);
 				phantom.exit();
 			}, 5000);
