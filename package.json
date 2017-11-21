@@ -19,7 +19,7 @@
 	},
 	"main": "server.js",
 	"scripts": {
-		"start": "node start.js",
+		"start": "node server.js",
 		"dev": "set ENVIRONMENT=development&& nodemon -e js,html,njk,css server.js"
 	},
 	"author": "Tyler Bauer",
