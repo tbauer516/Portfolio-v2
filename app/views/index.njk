@@ -6,11 +6,6 @@
 <body>
 	<input type="checkbox" id="nav-trigger">
 	<div id="top">
-		{% if auth %}
-			<a href="/logout" class="button cancel">
-				<button type="button">Logout</button>
-			</a>
-		{% endif %}
 		<a href="#" class="nav">{{ data.top.nav }}</a>
 		<label for="nav-trigger">&#9776;</label>
 	</div>

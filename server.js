@@ -1,7 +1,4 @@
 const express = require('express');
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-const fs = require('fs');
 const compression = require('compression');
 const nunjucks = require('nunjucks');
 const bodyParser = require('body-parser');
@@ -19,22 +16,12 @@ app.use( bodyParser.json() );
 app.use( bodyParser.urlencoded({
 	extended: true
 }));
-app.use(cookieParser());
-app.use(session({
-	secret: 'password',
-	name: 'portfolio',
-	resave: true,
-	saveUninitialized: true,
-	maxAge: 600000
-}));
 
-// nunjucks.configure(['app/partials', 'app/views'], {
 nunjucks.configure(['app'], {
 	autoescape: true,
 	express: app
 });
 
-// app.use('/', express.static(__dirname + '/public', { maxAge: oneDay }));
 app.use('/static', express.static(__dirname + '/app/public', { maxAge: oneDay }));
 
 require('./app/routes.js')(app);

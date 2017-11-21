@@ -1,11 +1,6 @@
 <div class="section {{ section.template }}">
 	<span id="{{ section.template + sectionIndex }}" tabindex="-1"></span>
 	<h2>
-		{% if auth %}
-			<a href="/edit/section/{{ sectionIndex }}" class="button cancel">
-				<button type="button">Edit</button>
-			</a>
-		{% endif %}
 		{{ section.title }}
 	</h2>
 	<div class="body">
