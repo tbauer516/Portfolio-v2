@@ -1,7 +1,7 @@
 {
-	"name": "test-environment",
-	"version": "0.0.1",
-	"description": "Test environment for my practice publishing a node server",
+	"name": "portfolio",
+	"version": "0.1.0",
+	"description": "Docker container to host my personal portfolio site",
 	"private": true,
 	"dependencies": {
 		"body-parser": "^1.17.2",
