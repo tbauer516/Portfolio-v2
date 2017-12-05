@@ -18,7 +18,7 @@
 		{
 			"template": "about-me",
 			"nav": "About",
-			"title": "About Me!",
+			"title": "About Me?",
 			"img-src": "/static/img/profile/profile.jpg",
 			"img-alt": "headshot of Tyler Bauer",
 			"dob": 800607600000,
