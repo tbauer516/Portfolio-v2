@@ -24,10 +24,14 @@ const execCommand = async (command) => {
 };
 
 const gitPull = async () => {
-    const command = 'git pull origin master';
+    const commands = [
+        'git pull origin master',
+        'git checkout master'
+    ];
 	
-	const stdout = await execCommand(command);
-	console.log(stdout);
+	for (let i = 0; i < commands.length; i++) {
+        console.log(await execCommand(commands[i]));
+    }
 };
 
 const gitPush = async () => {

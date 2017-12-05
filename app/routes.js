@@ -12,6 +12,7 @@ autodeploy.updateData().then(data => { indexData.data = data; });
 
 const deploy = (req, res) => {
 	autodeploy.deploy().then(data => { indexData.data = data; });
+	res.end();
 };
 
 module.exports = (app) => {
