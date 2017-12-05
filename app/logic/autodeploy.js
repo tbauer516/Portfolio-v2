@@ -31,9 +31,13 @@ const gitPull = async () => {
 };
 
 const gitPush = async () => {
-    const command = 'git add . && git commit -m "added pictures of projects" && git push origin master';
+    const command = 'git add .';
+    const com2 = 'git commit -m "added pictures of projects"';
+    const com3 = 'git push origin master';
 	
-	const stdout = await execCommand(command);
+    const stdout = await execCommand(command);
+    await execCommand(com2);
+    await execCommand(com3);
 	console.log(stdout);
 };
 
