@@ -31,16 +31,15 @@ const gitPull = async () => {
 };
 
 const gitPush = async () => {
-    const command = 'git add .';
-    const com2 = 'git commit -m "added pictures of projects"';
-    const com3 = 'git push origin master';
-	
-    let stdout = await execCommand(command);
-    console.log(stdout);
-    stdout = await execCommand(com2);
-    console.log(stdout);
-    stdout = await execCommand(com3);
-	console.log(stdout);
+    const commands = [
+        'git add .',
+        'git commit -m "added pictures of projects"',
+        'git push origin master'
+    ];
+    
+    for (let i = 0; i < commands.length; i++) {
+        console.log(await execCommand(commands[i]));
+    }
 };
 
 const getFiles = async () => {
