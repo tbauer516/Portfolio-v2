@@ -14,5 +14,5 @@ RUN set -xe \
   && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /
-EXPOSE 8108
+EXPOSE 8080
 CMD ["node", "server.js"]

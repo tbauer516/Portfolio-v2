@@ -7,7 +7,7 @@ const app = express();
 // Server Hosting Code Below
 
 const oneDay = 0; //86400000;
-const port = process.env.PORT || 8108;
+const port = process.env.PORT || 8080;
 
 app.set('view engine', 'njk');
 

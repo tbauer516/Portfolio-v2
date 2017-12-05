@@ -12,7 +12,8 @@
 		"http-master": "^1.2.6",
 		"nunjucks": "^3.0.0",
 		"passport": "^0.3.2",
-		"passport-google-oauth": "^1.0.0"
+		"passport-google-oauth": "^1.0.0",
+		"puppeteer": "^0.13.0"
 	},
 	"devDependencies": {
 		"nodemon": "latest"
