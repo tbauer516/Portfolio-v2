@@ -35,9 +35,11 @@ const gitPush = async () => {
     const com2 = 'git commit -m "added pictures of projects"';
     const com3 = 'git push origin master';
 	
-    const stdout = await execCommand(command);
-    await execCommand(com2);
-    await execCommand(com3);
+    let stdout = await execCommand(command);
+    console.log(stdout);
+    stdout = await execCommand(com2);
+    console.log(stdout);
+    stdout = await execCommand(com3);
 	console.log(stdout);
 };
 
