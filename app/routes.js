@@ -12,7 +12,6 @@ autodeploy.updateData().then(data => { indexData.data = data; });
 
 const deploy = (req, res) => {
 	autodeploy.deploy().then(data => { indexData.data = data; });
-	res.redirect('/');
 };
 
 module.exports = (app) => {
