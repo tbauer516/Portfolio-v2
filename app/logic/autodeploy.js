@@ -69,6 +69,7 @@ const titleToFile = (title) => {
 };
 
 const parseProjects = async (data, files) => {
+    let addedPicture = false;
     for (let i = 0; i < data.section.length; i++) {
         const section = data.section[i];
         if (section.template !== 'projects') continue;
@@ -79,10 +80,12 @@ const parseProjects = async (data, files) => {
             
             if (files.indexOf(projectFile) > -1) continue;
             
+            addedPicture = true;
             console.log(project.title);
             await screenshot(project.demo, projectFile);
 		}
-	}
+    }
+    return addedPicture;
 };
 
 const autodeploy = async () => {
@@ -93,9 +96,10 @@ const autodeploy = async () => {
 
     let files = await getFiles();
 
-    await parseProjects(data, files);
+    const added = await parseProjects(data, files);
 
-    await gitPush();
+    if (added)
+        await gitPush();
     console.log('Finished Syncing Data and Images...');
 
     return data;
