@@ -1,10 +1,10 @@
 FROM node:8.9.1
 
-COPY app/ /app/
-COPY server.js /
 COPY package*.json /
-
 RUN npm install --no-optional
+
+COPY . /home/node/portfolio/
+RUN chown -R node:node /home/node/portfolio
 
 RUN set -xe \
   && curl -fsSL https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - \
@@ -13,6 +13,7 @@ RUN set -xe \
   && apt-get install -y google-chrome-stable \
   && rm -rf /var/lib/apt/lists/*
 
-WORKDIR /
+USER node
+WORKDIR /home/node/portfolio
 EXPOSE 8080
 CMD ["node", "server.js"]

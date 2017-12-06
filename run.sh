@@ -1,1 +1,1 @@
-docker run -d --name portfolio -p 8202:8080 portfolio-image
+docker run -d -v ~/.ssh:/home/node/.ssh --name portfolio -p 8202:8080 portfolio-image
