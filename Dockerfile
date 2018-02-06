@@ -1,6 +1,7 @@
 FROM node:8.9.1
 
 COPY package*.json /
+RUN chown -R node:node /home/node/
 RUN npm install --no-optional
 
 RUN set -xe \
